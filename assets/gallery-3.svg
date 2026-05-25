@@ -1,12 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
-  <defs>
-    <linearGradient id="bg" x1="1" x2="0" y1="0" y2="1">
-      <stop stop-color="#fffefa"/>
-      <stop offset="1" stop-color="#d9d2c5"/>
-    </linearGradient>
-  </defs>
-  <rect width="600" height="800" fill="url(#bg)"/>
-  <circle cx="290" cy="384" r="190" fill="#fffefa" opacity=".58"/>
-  <path d="M142 276c86-40 186-42 300-8" fill="none" stroke="#6f7d68" stroke-width="9" stroke-linecap="round" opacity=".42"/>
-  <path d="M190 594c80-94 182-146 306-156" fill="none" stroke="#b19a73" stroke-width="5" stroke-linecap="round" opacity=".62"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800">
+  <rect width="640" height="800" fill="#ffffff"/>
+  <rect x="42" y="42" width="556" height="716" rx="18" fill="#f0f8f4" stroke="#dce8e2" stroke-width="4"/>
+  <circle cx="314" cy="384" r="190" fill="#ffffff" opacity=".76"/>
+  <path d="M132 280c94-42 204-44 330-8" fill="none" stroke="#1e6f54" stroke-width="10" stroke-linecap="round" opacity=".36"/>
+  <path d="M184 604c84-100 196-154 336-162" fill="none" stroke="#46a477" stroke-width="7" stroke-linecap="round" opacity=".6"/>
 </svg>

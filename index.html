@@ -2,93 +2,123 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="모바일 청첩장">
-    <meta property="og:title" content="우리 결혼합니다">
-    <meta property="og:description" content="소중한 분들을 결혼식에 초대합니다.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="2026년 8월 23일 일요일 오후 1시, 서울대학교 연구공원 웨딩홀 모바일 청첩장">
+    <meta property="og:title" content="신랑 이름 · 신부 이름 결혼합니다">
+    <meta property="og:description" content="2026년 8월 23일 일요일 오후 1시, 서울대학교 연구공원 웨딩홀">
     <meta property="og:type" content="website">
-    <title>모바일 청첩장</title>
+    <title>신랑 이름 · 신부 이름 모바일 청첩장</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="invite">
       <section class="hero" aria-label="청첩장 표지">
-        <img class="hero__image" src="assets/cover.svg" alt="꽃과 빛이 있는 웨딩 커버 이미지">
+        <div class="hero__visual">
+          <img src="assets/cover.svg" alt="초록 식물 라인이 있는 청첩장 커버">
+        </div>
         <div class="hero__content">
           <p class="eyebrow">Wedding Invitation</p>
-          <h1>신랑 이름<br>신부 이름</h1>
-          <p class="hero__date">2026. 10. 24 SAT 12:30 PM</p>
-          <p class="hero__place">예식장 이름 · 3층 그랜드홀</p>
+          <h1>신랑 이름<br><span>&amp;</span><br>신부 이름</h1>
+          <p class="date-line">2026. 08. 23 SUN · 1:00 PM</p>
+          <p class="place-line">서울대학교 연구공원 웨딩홀</p>
         </div>
       </section>
 
       <section class="section intro" aria-labelledby="intro-title">
         <p class="section-kicker">Invitation</p>
-        <h2 id="intro-title">저희 두 사람이<br>새로운 시작을 함께합니다.</h2>
+        <h2 id="intro-title">소중한 분들을<br>저희의 시작에 초대합니다.</h2>
         <p>
-          서로에게 가장 다정한 계절이 되어주기로 약속했습니다.
-          귀한 걸음으로 축복해주시면 더없는 기쁨으로 간직하겠습니다.
+          서로의 가장 좋은 벗이 되어
+          한 길을 함께 걸어가려 합니다.
+          귀한 걸음으로 축복해주시면
+          따뜻한 마음 오래 간직하겠습니다.
         </p>
       </section>
 
-      <section class="section families" aria-label="혼주 및 신랑 신부">
-        <div class="family-row">
-          <span>신랑</span>
+      <section class="section names" aria-label="신랑 신부와 부모님">
+        <div class="person">
+          <span class="role">신랑</span>
           <strong>신랑 이름</strong>
-          <small>아버지 성함 · 어머니 성함의 장남</small>
+          <small>아버지 성함 · 어머니 성함의 아들</small>
         </div>
-        <div class="family-row">
-          <span>신부</span>
+        <div class="person">
+          <span class="role">신부</span>
           <strong>신부 이름</strong>
-          <small>아버지 성함 · 어머니 성함의 장녀</small>
+          <small>아버지 성함 · 어머니 성함의 딸</small>
         </div>
       </section>
 
-      <section class="section calendar" aria-labelledby="calendar-title">
+      <section class="section schedule" aria-labelledby="schedule-title">
         <p class="section-kicker">Date</p>
-        <h2 id="calendar-title">2026년 10월 24일 토요일</h2>
-        <div class="calendar-card" aria-label="예식 달력">
-          <div class="calendar-card__month">October 2026</div>
+        <h2 id="schedule-title">2026년 8월 23일 일요일<br>오후 1시</h2>
+        <div class="calendar-card" aria-label="2026년 8월 달력">
+          <div class="calendar-card__head">
+            <span>August</span>
+            <strong>2026</strong>
+          </div>
           <div class="weekdays" aria-hidden="true">
             <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
           </div>
           <div class="days" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span>
-            <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
-            <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
-            <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span class="selected">24</span>
-            <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span>1</span>
+            <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+            <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+            <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
+            <span class="selected">23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
+            <span>30</span><span>31</span>
           </div>
         </div>
-        <button class="button button--primary" type="button" data-calendar>
-          일정 저장
-        </button>
+        <button class="button button--primary" type="button" data-calendar>일정 저장</button>
+      </section>
+
+      <section class="section venue" aria-labelledby="venue-title">
+        <p class="section-kicker">Venue</p>
+        <h2 id="venue-title">서울대학교 연구공원 웨딩홀</h2>
+        <p class="address" data-address>서울시 관악구 관악로1 서울대학교 연구공원 본관</p>
+        <img class="map-image" src="assets/map.svg" alt="낙성대역에서 관악02 마을버스를 이용해 서울대학교 후문 정류장에 하차 후 연구공원 본관으로 이동하는 약도">
+        <div class="button-row">
+          <a class="button" href="https://map.kakao.com/link/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">카카오맵</a>
+          <a class="button" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">네이버지도</a>
+          <button class="button" type="button" data-copy-address>주소 복사</button>
+        </div>
+      </section>
+
+      <section class="section directions" aria-labelledby="directions-title">
+        <p class="section-kicker">Directions</p>
+        <h2 id="directions-title">오시는 법</h2>
+        <div class="info-list">
+          <article>
+            <span>지하철</span>
+            <p>2호선 낙성대역 4번 출구 → 첫 번째 골목 좌회전 → GS칼텍스 주유소 옆 관악02 마을버스 승차 → 서울대학교 후문 하차 후 연구공원 방향 도보 약 100m</p>
+          </article>
+          <article>
+            <span>버스</span>
+            <p>간선 461, 641 / 지선 5413, 5524, 5528 이용 후 낙성대입구에서 관악02 마을버스로 환승</p>
+          </article>
+          <article>
+            <span>자동차</span>
+            <p>남부순환도로에서 낙성대 방향으로 진입 → 서울대 후문 방향 약 1.6km 직진 → 후문 직전 좌회전 → 샛길로 약 100m 진입</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section parking" aria-labelledby="parking-title">
+        <p class="section-kicker">Parking</p>
+        <h2 id="parking-title">주차 안내</h2>
+        <div class="notice">
+          <p>연구공원 본관 주차장을 이용하실 수 있습니다. 주말 예식 시간대에는 혼잡할 수 있으니 여유 있게 도착해 주세요.</p>
+          <p>서울대학교 정문 또는 후문을 차량으로 통과하는 경우 통행료 2,000원이 발생할 수 있습니다.</p>
+        </div>
       </section>
 
       <section class="section gallery" aria-labelledby="gallery-title">
         <p class="section-kicker">Gallery</p>
         <h2 id="gallery-title">우리의 순간</h2>
-        <div class="gallery-grid">
-          <img src="assets/gallery-1.svg" alt="웨딩 갤러리 이미지 1">
-          <img src="assets/gallery-2.svg" alt="웨딩 갤러리 이미지 2">
-          <img src="assets/gallery-3.svg" alt="웨딩 갤러리 이미지 3">
-        </div>
-      </section>
-
-      <section class="section location" aria-labelledby="location-title">
-        <p class="section-kicker">Location</p>
-        <h2 id="location-title">예식장 이름</h2>
-        <p class="address" data-address>서울특별시 강남구 테헤란로 000</p>
-        <div class="map-panel">
-          <div>
-            <strong>3층 그랜드홀</strong>
-            <span>지하철 2호선 역삼역 1번 출구 도보 5분</span>
-          </div>
-        </div>
-        <div class="button-row">
-          <a class="button" href="https://map.kakao.com/" target="_blank" rel="noreferrer">카카오맵</a>
-          <a class="button" href="https://map.naver.com/" target="_blank" rel="noreferrer">네이버지도</a>
-          <button class="button" type="button" data-copy-address>주소 복사</button>
+        <div class="gallery-track" aria-label="가로로 넘겨보는 사진 갤러리">
+          <img src="assets/gallery-1.svg" alt="갤러리 이미지 1">
+          <img src="assets/gallery-2.svg" alt="갤러리 이미지 2">
+          <img src="assets/gallery-3.svg" alt="갤러리 이미지 3">
+          <img src="assets/gallery-4.svg" alt="갤러리 이미지 4">
         </div>
       </section>
 
@@ -96,28 +126,38 @@
         <p class="section-kicker">Account</p>
         <h2 id="account-title">마음 전하실 곳</h2>
         <details>
-          <summary>신랑측 계좌</summary>
+          <summary>신랑 계좌</summary>
           <div class="account-row">
-            <span data-account="국민 000000-00-000000 신랑 이름">국민 000000-00-000000 신랑 이름</span>
+            <span data-account="은행명 000-0000-0000 신랑 이름">은행명 000-0000-0000 신랑 이름</span>
             <button type="button" data-copy-account>복사</button>
           </div>
         </details>
         <details>
-          <summary>신부측 계좌</summary>
+          <summary>신부 계좌</summary>
           <div class="account-row">
-            <span data-account="신한 000-000-000000 신부 이름">신한 000-000-000000 신부 이름</span>
+            <span data-account="은행명 000-0000-0000 신부 이름">은행명 000-0000-0000 신부 이름</span>
+            <button type="button" data-copy-account>복사</button>
+          </div>
+        </details>
+        <details>
+          <summary>신랑 혼주 계좌</summary>
+          <div class="account-row">
+            <span data-account="은행명 000-0000-0000 혼주 성함">은행명 000-0000-0000 혼주 성함</span>
+            <button type="button" data-copy-account>복사</button>
+          </div>
+        </details>
+        <details>
+          <summary>신부 혼주 계좌</summary>
+          <div class="account-row">
+            <span data-account="은행명 000-0000-0000 혼주 성함">은행명 000-0000-0000 혼주 성함</span>
             <button type="button" data-copy-account>복사</button>
           </div>
         </details>
       </section>
 
       <section class="section closing" aria-label="마무리 인사">
-        <p>
-          함께해주시는 마음 오래도록 소중히 간직하겠습니다.
-        </p>
-        <button class="button button--primary" type="button" data-share>
-          청첩장 공유
-        </button>
+        <p>함께해주시는 마음 깊이 감사드립니다.</p>
+        <button class="button button--primary" type="button" data-share>청첩장 공유</button>
       </section>
     </main>
 

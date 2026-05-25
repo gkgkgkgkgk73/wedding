@@ -1,12 +1,12 @@
 const toast = document.querySelector("[data-toast]");
 
 const wedding = {
-  title: "우리 결혼합니다",
-  dateText: "2026년 10월 24일 토요일 오후 12시 30분",
-  calendarStart: "20261024T033000Z",
-  calendarEnd: "20261024T043000Z",
-  place: "예식장 이름 3층 그랜드홀",
-  address: "서울특별시 강남구 테헤란로 000"
+  title: "신랑 이름 · 신부 이름 결혼합니다",
+  dateText: "2026년 8월 23일 일요일 오후 1시",
+  calendarStart: "20260823T040000Z",
+  calendarEnd: "20260823T060000Z",
+  place: "서울대학교 연구공원 웨딩홀",
+  address: "서울시 관악구 관악로1 서울대학교 연구공원 본관"
 };
 
 function showToast(message) {

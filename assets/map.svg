@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">서울대학교 연구공원 웨딩홀 약도</title>
+  <desc id="desc">낙성대역, 관악02 마을버스, 서울대학교 후문 정류장, 연구공원 웨딩홀 위치를 단순화한 약도</desc>
+  <rect width="900" height="620" rx="24" fill="#f0f8f4"/>
+  <path d="M90 458H810" fill="none" stroke="#dce8e2" stroke-width="34" stroke-linecap="round"/>
+  <path d="M178 458C246 344 338 280 454 266c112-14 210-60 294-138" fill="none" stroke="#dce8e2" stroke-width="34" stroke-linecap="round"/>
+  <path d="M90 458H810" fill="none" stroke="#46a477" stroke-width="8" stroke-linecap="round"/>
+  <path d="M178 458C246 344 338 280 454 266c112-14 210-60 294-138" fill="none" stroke="#1e6f54" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#ffffff" stroke="#03462e" stroke-width="5">
+    <circle cx="158" cy="458" r="38"/>
+    <circle cx="470" cy="264" r="38"/>
+    <circle cx="748" cy="128" r="38"/>
+  </g>
+  <g font-family="Pretendard, Apple SD Gothic Neo, Malgun Gothic, sans-serif" text-anchor="middle">
+    <text x="158" y="448" fill="#03462e" font-size="25" font-weight="800">낙성대역</text>
+    <text x="158" y="482" fill="#64746d" font-size="20">4번 출구</text>
+    <text x="470" y="254" fill="#03462e" font-size="25" font-weight="800">후문 정류장</text>
+    <text x="470" y="288" fill="#64746d" font-size="20">관악02</text>
+    <text x="748" y="118" fill="#03462e" font-size="25" font-weight="800">웨딩홀</text>
+    <text x="748" y="152" fill="#64746d" font-size="20">연구공원 본관</text>
+  </g>
+  <g fill="#03462e" font-family="Pretendard, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-size="24" font-weight="800">
+    <text x="284" y="414">마을버스 이동</text>
+    <text x="560" y="214">도보 약 100m</text>
+  </g>
+  <path d="M752 210v196H594v108H306" fill="none" stroke="#03462e" stroke-width="5" stroke-dasharray="12 12" opacity=".42"/>
+  <text x="450" y="560" fill="#64746d" font-family="Pretendard, Apple SD Gothic Neo, Malgun Gothic, sans-serif" font-size="22" text-anchor="middle">서울시 관악구 관악로1 서울대학교 연구공원 본관</text>
+</svg>

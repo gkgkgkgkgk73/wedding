@@ -1,49 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1440" role="img" aria-labelledby="title desc">
-  <title id="title">미니멀 웨딩 청첩장 커버</title>
-  <desc id="desc">밝은 종이 질감과 얇은 식물 라인이 있는 세로형 웨딩 커버 이미지</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1280" role="img" aria-labelledby="title desc">
+  <title id="title">초록 식물 라인의 청첩장 커버</title>
+  <desc id="desc">흰색 바탕에 초록 식물 라인과 부드러운 빛이 있는 모바일 청첩장 커버 이미지</desc>
   <defs>
-    <linearGradient id="paper" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0" stop-color="#fbfaf5"/>
-      <stop offset=".58" stop-color="#f2eee5"/>
-      <stop offset="1" stop-color="#fffefa"/>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".62" stop-color="#f0f8f4"/>
+      <stop offset="1" stop-color="#ffffff"/>
     </linearGradient>
-    <radialGradient id="wash" cx=".52" cy=".36" r=".72">
-      <stop offset="0" stop-color="#ffffff" stop-opacity=".86"/>
-      <stop offset=".64" stop-color="#d9d2c5" stop-opacity=".2"/>
-      <stop offset="1" stop-color="#d9d2c5" stop-opacity="0"/>
+    <radialGradient id="soft" cx=".5" cy=".32" r=".62">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".96"/>
+      <stop offset=".62" stop-color="#46a477" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#46a477" stop-opacity="0"/>
     </radialGradient>
-    <filter id="grain">
-      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
-      <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer>
-        <feFuncA type="table" tableValues="0 .035"/>
-      </feComponentTransfer>
-    </filter>
   </defs>
-  <rect width="960" height="1440" fill="url(#paper)"/>
-  <rect width="960" height="1440" fill="url(#wash)"/>
-  <rect width="960" height="1440" filter="url(#grain)" opacity=".42"/>
-  <g fill="none" stroke="#6f7d68" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
-    <path d="M170 1078C264 918 405 826 594 802c82-10 157-2 226 24" stroke-width="5"/>
-    <path d="M190 1092c72-58 145-96 219-114" stroke-width="3"/>
-    <path d="M532 812c-18-58-5-112 38-162" stroke-width="3"/>
-    <path d="M618 806c26-62 74-104 144-126" stroke-width="3"/>
-    <path d="M404 976c-52-42-78-90-78-144" stroke-width="3"/>
-    <path d="M316 1018c-64 4-116 28-156 72" stroke-width="3"/>
+  <rect width="960" height="1280" fill="url(#bg)"/>
+  <rect width="960" height="1280" fill="url(#soft)"/>
+  <circle cx="480" cy="520" r="228" fill="#ffffff" stroke="#dce8e2" stroke-width="3" opacity=".82"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M142 914c126-156 282-242 468-258 72-6 142-2 208 12" stroke="#03462e" stroke-width="8" opacity=".56"/>
+    <path d="M170 944c94-74 194-118 300-132" stroke="#46a477" stroke-width="6" opacity=".72"/>
+    <path d="M570 662c-22-92-4-178 54-258" stroke="#1e6f54" stroke-width="6" opacity=".54"/>
+    <path d="M650 658c34-74 92-126 174-156" stroke="#1e6f54" stroke-width="6" opacity=".5"/>
+    <path d="M434 816c-68-48-104-112-108-192" stroke="#1e6f54" stroke-width="6" opacity=".46"/>
   </g>
-  <g fill="#fffefa" stroke="#6f7d68" stroke-width="3" opacity=".78">
-    <ellipse cx="392" cy="980" rx="45" ry="16" transform="rotate(-28 392 980)"/>
-    <ellipse cx="494" cy="842" rx="42" ry="15" transform="rotate(-44 494 842)"/>
-    <ellipse cx="579" cy="742" rx="40" ry="15" transform="rotate(-56 579 742)"/>
-    <ellipse cx="668" cy="748" rx="44" ry="16" transform="rotate(-24 668 748)"/>
-    <ellipse cx="760" cy="684" rx="43" ry="16" transform="rotate(-20 760 684)"/>
-    <ellipse cx="323" cy="856" rx="40" ry="15" transform="rotate(58 323 856)"/>
-    <ellipse cx="238" cy="1056" rx="42" ry="15" transform="rotate(-18 238 1056)"/>
+  <g fill="#ffffff" stroke="#1e6f54" stroke-width="5" opacity=".95">
+    <ellipse cx="384" cy="808" rx="52" ry="18" transform="rotate(-26 384 808)"/>
+    <ellipse cx="520" cy="682" rx="50" ry="18" transform="rotate(-42 520 682)"/>
+    <ellipse cx="616" cy="530" rx="46" ry="17" transform="rotate(-58 616 530)"/>
+    <ellipse cx="704" cy="584" rx="50" ry="18" transform="rotate(-28 704 584)"/>
+    <ellipse cx="806" cy="502" rx="48" ry="17" transform="rotate(-20 806 502)"/>
+    <ellipse cx="324" cy="628" rx="46" ry="17" transform="rotate(58 324 628)"/>
+    <ellipse cx="250" cy="902" rx="48" ry="17" transform="rotate(-18 250 902)"/>
   </g>
-  <g fill="#b19a73" opacity=".58">
-    <circle cx="438" cy="894" r="5"/>
-    <circle cx="618" cy="806" r="5"/>
-    <circle cx="706" cy="718" r="5"/>
-    <circle cx="302" cy="1012" r="5"/>
+  <g fill="#46a477" opacity=".7">
+    <circle cx="452" cy="754" r="8"/>
+    <circle cx="650" cy="656" r="8"/>
+    <circle cx="754" cy="542" r="8"/>
+    <circle cx="312" cy="852" r="8"/>
   </g>
 </svg>
