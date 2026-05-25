@@ -114,11 +114,17 @@
       <section class="section gallery" aria-labelledby="gallery-title">
         <p class="section-kicker">Gallery</p>
         <h2 id="gallery-title">우리의 순간</h2>
-        <div class="gallery-track" aria-label="가로로 넘겨보는 사진 갤러리">
-          <img src="assets/gallery-1.svg" alt="갤러리 이미지 1">
-          <img src="assets/gallery-2.svg" alt="갤러리 이미지 2">
-          <img src="assets/gallery-3.svg" alt="갤러리 이미지 3">
-          <img src="assets/gallery-4.svg" alt="갤러리 이미지 4">
+        <div class="gallery-shell">
+          <div class="gallery-actions" aria-label="갤러리 이동">
+            <button type="button" aria-label="이전 사진" data-gallery-prev>&lsaquo;</button>
+            <button type="button" aria-label="다음 사진" data-gallery-next>&rsaquo;</button>
+          </div>
+          <div class="gallery-track" aria-label="가로로 넘겨보는 사진 갤러리" tabindex="0" data-gallery-track>
+            <img src="assets/gallery-1.svg" alt="갤러리 이미지 1" draggable="false">
+            <img src="assets/gallery-2.svg" alt="갤러리 이미지 2" draggable="false">
+            <img src="assets/gallery-3.svg" alt="갤러리 이미지 3" draggable="false">
+            <img src="assets/gallery-4.svg" alt="갤러리 이미지 4" draggable="false">
+          </div>
         </div>
       </section>
 
