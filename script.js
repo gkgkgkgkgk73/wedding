@@ -71,27 +71,3 @@ document.querySelector("[data-share]")?.addEventListener("click", async () => {
 
   copyText(window.location.href, "청첩장 링크를 복사했어요.");
 });
-
-const galleryTrack = document.querySelector("[data-gallery-track]");
-
-function scrollGallery(direction) {
-  if (!galleryTrack) {
-    return;
-  }
-
-  const item = galleryTrack.querySelector("img");
-  const gap = parseFloat(getComputedStyle(galleryTrack).columnGap || "0");
-  const distance = item ? item.getBoundingClientRect().width + gap : galleryTrack.clientWidth * 0.8;
-  galleryTrack.scrollBy({
-    left: direction * distance,
-    behavior: "smooth"
-  });
-}
-
-document.querySelector("[data-gallery-prev]")?.addEventListener("click", () => {
-  scrollGallery(-1);
-});
-
-document.querySelector("[data-gallery-next]")?.addEventListener("click", () => {
-  scrollGallery(1);
-});

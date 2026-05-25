@@ -335,28 +335,6 @@ details {
   margin-top: 24px;
 }
 
-.gallery-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.gallery-actions button {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--white);
-  color: var(--green-900);
-  font: inherit;
-  font-size: 1.7rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
 .gallery-track {
   display: flex;
   gap: 12px;
@@ -375,8 +353,8 @@ details {
 }
 
 .gallery-track img {
-  flex: 0 0 min(78vw, 316px);
-  width: min(78vw, 316px);
+  flex: 0 0 min(72vw, 292px);
+  width: min(72vw, 292px);
   aspect-ratio: 4 / 5;
   border: 1px solid var(--line);
   border-radius: 8px;
