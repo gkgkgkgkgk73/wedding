@@ -44,33 +44,27 @@ summary {
 }
 
 .hero {
-  min-height: 100svh;
-  display: grid;
-  grid-template-rows: minmax(44svh, 1fr) auto;
-  padding: max(18px, env(safe-area-inset-top)) 18px 42px;
+  position: relative;
+  min-height: auto;
+  padding: max(38px, calc(28px + env(safe-area-inset-top))) 24px 48px;
   background: linear-gradient(180deg, var(--paper), var(--white));
-}
-
-.hero__visual {
-  display: grid;
-  min-height: 0;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 8px;
   overflow: hidden;
-  background: var(--green-050);
-}
-
-.hero__visual img {
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
-  object-fit: cover;
 }
 
 .hero__content {
-  padding: 34px 10px 0;
+  position: relative;
+  z-index: 1;
+  padding: 0;
   text-align: center;
+}
+
+.hero__mark {
+  position: absolute;
+  right: -98px;
+  bottom: -124px;
+  width: 280px;
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 .eyebrow,
@@ -138,18 +132,23 @@ h2 {
   font-size: 0.94rem;
 }
 
+.hero__message {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.88;
+}
+
 .section {
   padding: clamp(54px, 13vw, 72px) 24px;
   border-top: 1px solid var(--line);
 }
 
-.intro,
 .schedule,
 .closing {
   text-align: center;
 }
 
-.intro p,
 .closing p,
 .notice p,
 .info-list p {
@@ -471,7 +470,7 @@ summary {
     font-size: 1.24rem;
   }
 
-  .intro p,
+  .hero__message,
   .closing p,
   .notice p,
   .info-list p,
