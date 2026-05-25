@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "MaruBuri";
+  src: url("https://cdn.jsdelivr.net/gh/sweetherofonts/fontshero_pack3/maruburi/maruburi-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MaruBuri";
+  src: url("https://cdn.jsdelivr.net/gh/sweetherofonts/fontshero_pack3/maruburi/maruburi-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MaruBuri";
+  src: url("https://cdn.jsdelivr.net/gh/sweetherofonts/fontshero_pack3/maruburi/maruburi-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --white: #ffffff;
   --paper: #fbfdfb;
@@ -25,7 +49,7 @@ body {
   margin: 0;
   background: var(--white);
   color: var(--ink);
-  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  font-family: "MaruBuri", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   letter-spacing: 0;
 }
 
@@ -71,7 +95,7 @@ summary {
 .section-kicker {
   margin: 0;
   color: var(--green-700);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "MaruBuri", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -92,7 +116,7 @@ summary {
 h1 {
   margin: 16px 0 18px;
   color: var(--green-900);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "MaruBuri", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   font-size: 4.15rem;
   font-weight: 400;
   line-height: 0.96;
@@ -210,7 +234,7 @@ h2 {
   justify-content: space-between;
   margin-bottom: 18px;
   color: var(--green-900);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "MaruBuri", "Apple SD Gothic Neo", "Malgun Gothic", serif;
 }
 
 .calendar-card__head span {
