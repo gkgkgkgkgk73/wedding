@@ -385,7 +385,7 @@ details {
 .gallery-track img {
   flex: 0 0 min(72vw, 292px);
   width: min(72vw, 292px);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 2 / 3;
   border: 1px solid var(--line);
   border-radius: 8px;
   object-fit: cover;
