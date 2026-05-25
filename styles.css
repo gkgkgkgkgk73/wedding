@@ -1,13 +1,14 @@
 :root {
-  --paper: #fffaf6;
-  --ink: #2f3330;
-  --muted: #777a72;
-  --line: #e7ded4;
-  --rose: #b76f78;
-  --sage: #71836c;
-  --gold: #b39159;
+  --page: #efede8;
+  --paper: #fffefa;
+  --soft: #f7f5ef;
+  --ink: #252724;
+  --muted: #76786f;
+  --line: #e5e0d7;
+  --accent: #6f7d68;
+  --accent-dark: #455143;
+  --warm: #b19a73;
   --white: #ffffff;
-  --shadow: 0 18px 42px rgba(55, 48, 42, 0.12);
 }
 
 * {
@@ -20,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  background: #ece7e1;
+  background: var(--page);
   color: var(--ink);
   font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   letter-spacing: 0;
@@ -32,21 +33,20 @@ a {
 }
 
 .invite {
-  width: min(100%, 480px);
+  width: min(100%, 440px);
   min-height: 100vh;
   margin: 0 auto;
   background: var(--paper);
   overflow: hidden;
-  box-shadow: 0 0 0 1px rgba(67, 58, 47, 0.08);
 }
 
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 96svh;
   display: grid;
-  align-items: end;
-  color: var(--white);
+  grid-template-rows: 1fr auto;
   isolation: isolate;
+  background: var(--paper);
 }
 
 .hero::after {
@@ -54,7 +54,7 @@ a {
   inset: 0;
   z-index: -1;
   content: "";
-  background: linear-gradient(180deg, rgba(24, 28, 25, 0.02) 0%, rgba(24, 28, 25, 0.18) 42%, rgba(24, 28, 25, 0.72) 100%);
+  background: linear-gradient(180deg, rgba(255, 254, 250, 0.1), rgba(255, 254, 250, 0.52) 62%, rgba(255, 254, 250, 0.94));
 }
 
 .hero__image {
@@ -67,58 +67,71 @@ a {
 }
 
 .hero__content {
-  padding: 0 28px 72px;
+  align-self: end;
+  padding: 0 32px 70px;
+  color: var(--ink);
   text-align: center;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.26);
 }
 
 .eyebrow,
 .section-kicker {
   margin: 0;
-  color: var(--gold);
+  color: var(--warm);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-}
-
-.hero .eyebrow {
-  color: rgba(255, 255, 255, 0.82);
 }
 
 h1,
 h2,
-p {
+p,
+small,
+span,
+strong {
   word-break: keep-all;
 }
 
 h1 {
-  margin: 18px 0 18px;
+  margin: 18px 0 22px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.2rem, 16vw, 4.8rem);
+  font-size: clamp(3.35rem, 15vw, 4.7rem);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 0.96;
 }
 
 h2 {
-  margin: 10px 0 16px;
-  font-size: 1.42rem;
+  margin: 10px 0 18px;
+  font-size: 1.34rem;
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
-.hero__date,
+.hero__date {
+  width: fit-content;
+  margin: 0 auto 10px;
+  padding: 11px 16px;
+  border-top: 1px solid rgba(69, 81, 67, 0.22);
+  border-bottom: 1px solid rgba(69, 81, 67, 0.22);
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
 .hero__place {
-  margin: 7px 0 0;
-  font-size: 0.94rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .section {
-  padding: 64px 28px;
+  padding: 66px 30px;
   border-bottom: 1px solid var(--line);
 }
 
-.intro {
+.intro,
+.calendar,
+.closing {
   text-align: center;
 }
 
@@ -126,23 +139,23 @@ h2 {
 .closing p {
   margin: 0;
   color: var(--muted);
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.95;
 }
 
 .families {
   display: grid;
-  gap: 14px;
-  background: #f7f5ef;
+  gap: 0;
+  background: var(--soft);
 }
 
 .family-row {
   display: grid;
-  grid-template-columns: 52px 1fr;
+  grid-template-columns: 46px 1fr;
   gap: 4px 16px;
   align-items: center;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(113, 131, 108, 0.2);
+  border-bottom: 1px solid rgba(69, 81, 67, 0.14);
 }
 
 .family-row:last-child {
@@ -150,53 +163,48 @@ h2 {
 }
 
 .family-row span {
-  color: var(--sage);
-  font-size: 0.86rem;
+  color: var(--accent);
+  font-size: 0.82rem;
 }
 
 .family-row strong {
-  font-size: 1.28rem;
+  font-size: 1.22rem;
   font-weight: 600;
 }
 
 .family-row small {
   grid-column: 2;
   color: var(--muted);
-  font-size: 0.86rem;
-}
-
-.calendar {
-  text-align: center;
+  font-size: 0.84rem;
 }
 
 .calendar-card {
   margin: 26px 0 22px;
-  padding: 22px;
+  padding: 22px 18px;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
-  box-shadow: var(--shadow);
 }
 
 .calendar-card__month {
   margin-bottom: 18px;
-  color: var(--rose);
+  color: var(--accent-dark);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .weekdays,
 .days {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
   align-items: center;
 }
 
 .weekdays {
   margin-bottom: 10px;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
 }
 
 .days span {
@@ -205,11 +213,12 @@ h2 {
   aspect-ratio: 1;
   place-items: center;
   border-radius: 999px;
-  font-size: 0.86rem;
+  color: #4d504b;
+  font-size: 0.84rem;
 }
 
 .days .selected {
-  background: var(--rose);
+  background: var(--accent-dark);
   color: var(--white);
   font-weight: 700;
 }
@@ -224,7 +233,7 @@ h2 {
 .gallery-grid img {
   width: 100%;
   aspect-ratio: 3 / 4;
-  border-radius: 8px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
@@ -235,16 +244,15 @@ h2 {
 }
 
 .map-panel {
-  min-height: 176px;
+  min-height: 162px;
   display: grid;
   align-items: end;
   margin: 22px 0 18px;
   padding: 18px;
   color: var(--white);
   background:
-    linear-gradient(150deg, rgba(47, 51, 48, 0.82), rgba(113, 131, 108, 0.56)),
-    radial-gradient(circle at 20% 20%, rgba(255, 250, 246, 0.26), transparent 34%),
-    #71836c;
+    linear-gradient(135deg, rgba(37, 39, 36, 0.82), rgba(69, 81, 67, 0.76)),
+    var(--accent);
   border-radius: 8px;
 }
 
@@ -255,8 +263,9 @@ h2 {
 
 .map-panel span {
   margin-top: 6px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.86rem;
+  line-height: 1.55;
 }
 
 .button-row {
@@ -276,15 +285,15 @@ h2 {
   background: var(--white);
   color: var(--ink);
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   text-decoration: none;
   cursor: pointer;
 }
 
 .button--primary {
   width: 100%;
-  border-color: transparent;
-  background: var(--ink);
+  border-color: var(--accent-dark);
+  background: var(--accent-dark);
   color: var(--white);
 }
 
@@ -297,7 +306,7 @@ details {
 
 summary {
   padding: 18px;
-  color: var(--sage);
+  color: var(--accent-dark);
   cursor: pointer;
 }
 
@@ -308,23 +317,22 @@ summary {
   align-items: center;
   padding: 0 18px 18px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .account-row button {
   min-width: 52px;
   min-height: 34px;
-  border: 0;
+  border: 1px solid var(--line);
   border-radius: 8px;
-  background: #f0e8df;
+  background: var(--soft);
   color: var(--ink);
   font: inherit;
   cursor: pointer;
 }
 
 .closing {
-  padding-bottom: 84px;
-  text-align: center;
+  padding-bottom: 82px;
 }
 
 .closing .button {
@@ -340,9 +348,9 @@ summary {
   max-width: calc(100% - 40px);
   padding: 12px 16px;
   border-radius: 999px;
-  background: rgba(47, 51, 48, 0.92);
+  background: rgba(37, 39, 36, 0.92);
   color: var(--white);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   opacity: 0;
   transform: translate(-50%, 12px);
   pointer-events: none;
@@ -352,6 +360,12 @@ summary {
 .toast.is-visible {
   opacity: 1;
   transform: translate(-50%, 0);
+}
+
+@media (min-width: 441px) {
+  .invite {
+    box-shadow: 0 0 0 1px rgba(37, 39, 36, 0.08);
+  }
 }
 
 @media (max-width: 360px) {

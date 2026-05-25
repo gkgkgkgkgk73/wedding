@@ -1,7 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800">
-  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fffaf6"/><stop offset="1" stop-color="#b76f78"/></linearGradient></defs>
-  <rect width="600" height="800" fill="url(#g)"/>
-  <circle cx="300" cy="292" r="138" fill="#fffaf6" opacity=".74"/>
-  <path d="M128 594c110-86 224-124 344-114" fill="none" stroke="#71836c" stroke-width="18" stroke-linecap="round"/>
-  <text x="300" y="710" text-anchor="middle" fill="#2f3330" font-family="Georgia, serif" font-size="42">Photo 1</text>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop stop-color="#fbfaf5"/>
+      <stop offset="1" stop-color="#e5e0d7"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#bg)"/>
+  <path d="M110 582c92-92 196-136 312-132 34 2 68 8 102 18" fill="none" stroke="#6f7d68" stroke-width="10" stroke-linecap="round" opacity=".44"/>
+  <circle cx="418" cy="268" r="118" fill="#fffefa" opacity=".7"/>
+  <path d="M240 588c34-112 106-186 216-222" fill="none" stroke="#b19a73" stroke-width="5" stroke-linecap="round" opacity=".64"/>
 </svg>
