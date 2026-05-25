@@ -104,20 +104,26 @@ summary {
   word-break: keep-all;
 }
 
-h1 {
+.couple-title {
   margin: 16px 0 18px;
   color: var(--green-900);
   font-family: "MaruBuri", "Apple SD Gothic Neo", "Malgun Gothic", serif;
-  font-size: 4.15rem;
-  font-weight: 400;
-  line-height: 0.96;
+  font-size: 2.28rem;
+  font-weight: 600;
+  line-height: 1.18;
+  white-space: nowrap;
 }
 
-h1 span {
+.couple-title span {
+  display: inline-block;
+}
+
+.couple-title .heart {
   display: inline-block;
   color: var(--green-500);
-  font-size: 0.34em;
-  transform: translateY(-0.2em);
+  margin: 0 0.22em;
+  font-size: 0.58em;
+  transform: translateY(-0.08em);
 }
 
 h2 {
@@ -470,8 +476,8 @@ summary {
 }
 
 @media (max-width: 360px) {
-  h1 {
-    font-size: 3.5rem;
+  .couple-title {
+    font-size: 1.96rem;
   }
 
   h2 {

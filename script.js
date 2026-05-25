@@ -1,7 +1,7 @@
 const toast = document.querySelector("[data-toast]");
 
 const wedding = {
-  title: "신랑 이름 · 신부 이름 결혼합니다",
+  title: "유경민 · 김준경 결혼합니다",
   dateText: "2026년 8월 23일 일요일 오후 1시",
   calendarStart: "20260823T040000Z",
   calendarEnd: "20260823T060000Z",
