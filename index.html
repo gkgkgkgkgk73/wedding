@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="모바일 청첩장">
+    <meta property="og:title" content="우리 결혼합니다">
+    <meta property="og:description" content="소중한 분들을 결혼식에 초대합니다.">
+    <meta property="og:type" content="website">
+    <title>모바일 청첩장</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="invite">
+      <section class="hero" aria-label="청첩장 표지">
+        <img class="hero__image" src="assets/cover.svg" alt="꽃과 빛이 있는 웨딩 커버 이미지">
+        <div class="hero__content">
+          <p class="eyebrow">Wedding Invitation</p>
+          <h1>신랑 이름<br>신부 이름</h1>
+          <p class="hero__date">2026. 10. 24 SAT 12:30 PM</p>
+          <p class="hero__place">예식장 이름 · 3층 그랜드홀</p>
+        </div>
+      </section>
+
+      <section class="section intro" aria-labelledby="intro-title">
+        <p class="section-kicker">Invitation</p>
+        <h2 id="intro-title">저희 두 사람이<br>새로운 시작을 함께합니다.</h2>
+        <p>
+          서로에게 가장 다정한 계절이 되어주기로 약속했습니다.
+          귀한 걸음으로 축복해주시면 더없는 기쁨으로 간직하겠습니다.
+        </p>
+      </section>
+
+      <section class="section families" aria-label="혼주 및 신랑 신부">
+        <div class="family-row">
+          <span>신랑</span>
+          <strong>신랑 이름</strong>
+          <small>아버지 성함 · 어머니 성함의 장남</small>
+        </div>
+        <div class="family-row">
+          <span>신부</span>
+          <strong>신부 이름</strong>
+          <small>아버지 성함 · 어머니 성함의 장녀</small>
+        </div>
+      </section>
+
+      <section class="section calendar" aria-labelledby="calendar-title">
+        <p class="section-kicker">Date</p>
+        <h2 id="calendar-title">2026년 10월 24일 토요일</h2>
+        <div class="calendar-card" aria-label="예식 달력">
+          <div class="calendar-card__month">October 2026</div>
+          <div class="weekdays" aria-hidden="true">
+            <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+          </div>
+          <div class="days" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span>
+            <span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+            <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+            <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span class="selected">24</span>
+            <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+          </div>
+        </div>
+        <button class="button button--primary" type="button" data-calendar>
+          일정 저장
+        </button>
+      </section>
+
+      <section class="section gallery" aria-labelledby="gallery-title">
+        <p class="section-kicker">Gallery</p>
+        <h2 id="gallery-title">우리의 순간</h2>
+        <div class="gallery-grid">
+          <img src="assets/gallery-1.svg" alt="웨딩 갤러리 이미지 1">
+          <img src="assets/gallery-2.svg" alt="웨딩 갤러리 이미지 2">
+          <img src="assets/gallery-3.svg" alt="웨딩 갤러리 이미지 3">
+        </div>
+      </section>
+
+      <section class="section location" aria-labelledby="location-title">
+        <p class="section-kicker">Location</p>
+        <h2 id="location-title">예식장 이름</h2>
+        <p class="address" data-address>서울특별시 강남구 테헤란로 000</p>
+        <div class="map-panel">
+          <div>
+            <strong>3층 그랜드홀</strong>
+            <span>지하철 2호선 역삼역 1번 출구 도보 5분</span>
+          </div>
+        </div>
+        <div class="button-row">
+          <a class="button" href="https://map.kakao.com/" target="_blank" rel="noreferrer">카카오맵</a>
+          <a class="button" href="https://map.naver.com/" target="_blank" rel="noreferrer">네이버지도</a>
+          <button class="button" type="button" data-copy-address>주소 복사</button>
+        </div>
+      </section>
+
+      <section class="section account" aria-labelledby="account-title">
+        <p class="section-kicker">Account</p>
+        <h2 id="account-title">마음 전하실 곳</h2>
+        <details>
+          <summary>신랑측 계좌</summary>
+          <div class="account-row">
+            <span data-account="국민 000000-00-000000 신랑 이름">국민 000000-00-000000 신랑 이름</span>
+            <button type="button" data-copy-account>복사</button>
+          </div>
+        </details>
+        <details>
+          <summary>신부측 계좌</summary>
+          <div class="account-row">
+            <span data-account="신한 000-000-000000 신부 이름">신한 000-000-000000 신부 이름</span>
+            <button type="button" data-copy-account>복사</button>
+          </div>
+        </details>
+      </section>
+
+      <section class="section closing" aria-label="마무리 인사">
+        <p>
+          함께해주시는 마음 오래도록 소중히 간직하겠습니다.
+        </p>
+        <button class="button button--primary" type="button" data-share>
+          청첩장 공유
+        </button>
+      </section>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+    <script src="script.js"></script>
+  </body>
+</html>
