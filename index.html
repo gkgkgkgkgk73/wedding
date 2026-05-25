@@ -63,16 +63,20 @@
             <span>30</span><span>31</span>
           </div>
         </div>
-        <button class="button button--primary" type="button" data-calendar>일정 저장</button>
       </section>
 
       <section class="section venue" aria-labelledby="venue-title">
         <p class="section-kicker">Venue</p>
         <h2 id="venue-title">서울대학교 연구공원 웨딩홀</h2>
         <p class="address" data-address>서울시 관악구 관악로1 서울대학교 연구공원 본관</p>
-        <img class="map-image" src="assets/map.png" alt="낙성대역 4번 출구에서 관악02 마을버스를 이용해 서울대 후문 연구공원 정류장에 하차 후 연구공원 웨딩홀로 이동하는 약도">
+        <iframe
+          class="map-frame"
+          title="서울대학교 연구공원 웨딩홀 네이버지도"
+          src="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
         <div class="button-row">
-          <a class="button" href="https://map.kakao.com/link/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">카카오맵</a>
           <a class="button" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">네이버지도</a>
           <button class="button" type="button" data-copy-address>주소 복사</button>
         </div>
@@ -110,21 +114,22 @@
         <p class="section-kicker">Gallery</p>
         <h2 id="gallery-title">우리의 순간</h2>
         <div class="gallery-shell">
-          <div class="gallery-track" aria-label="가로로 넘겨보는 사진 갤러리" tabindex="0">
-            <img src="assets/gallery-web/gallery-01.jpg" alt="웨딩 갤러리 사진 1" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-02.jpg" alt="웨딩 갤러리 사진 2" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-03.jpg" alt="웨딩 갤러리 사진 3" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-04.jpg" alt="웨딩 갤러리 사진 4" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-05.jpg" alt="웨딩 갤러리 사진 5" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-06.jpg" alt="웨딩 갤러리 사진 6" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-07.jpg" alt="웨딩 갤러리 사진 7" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-08.jpg" alt="웨딩 갤러리 사진 8" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-09.jpg" alt="웨딩 갤러리 사진 9" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-10.jpg" alt="웨딩 갤러리 사진 10" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-11.jpg" alt="웨딩 갤러리 사진 11" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-12.jpg" alt="웨딩 갤러리 사진 12" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-13.jpg" alt="웨딩 갤러리 사진 13" loading="lazy" decoding="async" draggable="false">
-            <img src="assets/gallery-web/gallery-14.jpg" alt="웨딩 갤러리 사진 14" loading="lazy" decoding="async" draggable="false">
+          <img class="gallery-main" src="assets/gallery-web/gallery-01.jpg" alt="선택된 웨딩 갤러리 사진" data-gallery-main>
+          <div class="gallery-thumbs" aria-label="사진 선택 썸네일" tabindex="0">
+            <button class="is-active" type="button" data-gallery-src="assets/gallery-web/gallery-01.jpg" aria-label="갤러리 사진 1 선택"><img src="assets/gallery-web/gallery-01.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-02.jpg" aria-label="갤러리 사진 2 선택"><img src="assets/gallery-web/gallery-02.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-03.jpg" aria-label="갤러리 사진 3 선택"><img src="assets/gallery-web/gallery-03.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-04.jpg" aria-label="갤러리 사진 4 선택"><img src="assets/gallery-web/gallery-04.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-05.jpg" aria-label="갤러리 사진 5 선택"><img src="assets/gallery-web/gallery-05.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-06.jpg" aria-label="갤러리 사진 6 선택"><img src="assets/gallery-web/gallery-06.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-07.jpg" aria-label="갤러리 사진 7 선택"><img src="assets/gallery-web/gallery-07.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-08.jpg" aria-label="갤러리 사진 8 선택"><img src="assets/gallery-web/gallery-08.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-09.jpg" aria-label="갤러리 사진 9 선택"><img src="assets/gallery-web/gallery-09.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-10.jpg" aria-label="갤러리 사진 10 선택"><img src="assets/gallery-web/gallery-10.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-11.jpg" aria-label="갤러리 사진 11 선택"><img src="assets/gallery-web/gallery-11.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-12.jpg" aria-label="갤러리 사진 12 선택"><img src="assets/gallery-web/gallery-12.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-13.jpg" aria-label="갤러리 사진 13 선택"><img src="assets/gallery-web/gallery-13.jpg" alt="" loading="lazy" decoding="async"></button>
+            <button type="button" data-gallery-src="assets/gallery-web/gallery-14.jpg" aria-label="갤러리 사진 14 선택"><img src="assets/gallery-web/gallery-14.jpg" alt="" loading="lazy" decoding="async"></button>
           </div>
         </div>
       </section>
