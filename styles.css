@@ -16,13 +16,15 @@
 
 :root {
   --white: #ffffff;
-  --ivory: #fffffc;
-  --ivory-deep: #fffdf7;
+  --ivory: #fbfaf6;
+  --ivory-deep: #f7f6f1;
   --ink: #111111;
   --muted: #76716a;
   --soft-title: #969088;
-  --line: #f7f1e8;
+  --line: #ebe8df;
   --overlay: rgba(0, 0, 0, 0.82);
+  --section-gap: 76px;
+  --separator-offset: -38px;
 }
 
 * {
@@ -88,17 +90,17 @@ legend {
   text-align: center;
 }
 
+.panel + .panel {
+  margin-top: var(--section-gap);
+}
+
 .panel + .panel::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 24px;
-  right: 24px;
+  top: var(--separator-offset);
+  left: 32px;
+  right: 32px;
   border-top: 1px solid var(--line);
-}
-
-.cover + .panel::before {
-  top: 32px;
 }
 
 .cover {
@@ -241,28 +243,6 @@ h2 {
   font-size: 1.18rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  transform-origin: 50% 0;
-}
-
-.dday-unit strong.is-flipping {
-  animation: flip-number 360ms ease;
-}
-
-@keyframes flip-number {
-  0% {
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
-
-  45% {
-    transform: rotateX(-78deg);
-    opacity: 0.48;
-  }
-
-  100% {
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
 }
 
 .calendar__head {
@@ -682,6 +662,11 @@ summary {
 }
 
 @media (max-width: 360px) {
+  :root {
+    --section-gap: 64px;
+    --separator-offset: -32px;
+  }
+
   .panel {
     padding-left: 18px;
     padding-right: 18px;

@@ -104,13 +104,6 @@ function setDdayUnit(unit, value) {
   }
 
   element.textContent = value;
-  element.classList.remove("is-flipping");
-  window.requestAnimationFrame(() => {
-    element.classList.add("is-flipping");
-  });
-  window.setTimeout(() => {
-    element.classList.remove("is-flipping");
-  }, 380);
 }
 
 function updateDday() {
