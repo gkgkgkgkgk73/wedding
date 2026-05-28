@@ -4,50 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="2026년 8월 23일 일요일 오후 1시, 서울대학교 연구공원 웨딩홀 모바일 청첩장">
-    <meta property="og:title" content="유경민 · 김준경 결혼합니다">
+    <meta property="og:title" content="김준경 & 유경민 결혼합니다">
     <meta property="og:description" content="2026년 8월 23일 일요일 오후 1시, 서울대학교 연구공원 웨딩홀">
     <meta property="og:type" content="website">
-    <title>유경민 · 김준경 모바일 청첩장</title>
+    <title>김준경 & 유경민 모바일 청첩장</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="invite">
-      <section class="hero" aria-label="청첩장 시작">
-        <div class="hero__content">
-          <p class="eyebrow">Wedding Invitation</p>
-          <h1 class="couple-title">
-            <span>유경민</span>
-            <span class="heart" aria-hidden="true">♥</span>
-            <span>김준경</span>
-          </h1>
-          <p class="date-line">2026. 08. 23 SUN · 1:00 PM</p>
-          <p class="place-line">서울대학교 연구공원 웨딩홀</p>
-          <p class="hero__message">
-            서로의 가장 좋은 벗이 되어 한 길을 함께 걸어가려 합니다.
-            귀한 걸음으로 축복해주시면 따뜻한 마음 오래 간직하겠습니다.
-          </p>
-        </div>
-        <img class="hero__photo" src="assets/head_ver2.JPG" alt="우산을 함께 쓴 신랑 신부 대표 사진" fetchpriority="high">
-      </section>
-
-      <section class="section names" aria-label="신랑 신부와 부모님">
-        <div class="person">
-          <span class="role">신랑</span>
-          <strong>유경민</strong>
-          <small>아버지 유석형 · 어머니 윤정화의 아들</small>
-        </div>
-        <div class="person">
-          <span class="role">신부</span>
-          <strong>김준경</strong>
-          <small>아버지 김재석 · 어머니 임미정의 딸</small>
+      <section class="cover panel" aria-label="대표 사진">
+        <img class="cover__photo" src="assets/head_ver2.JPG" alt="신랑 신부 대표 사진" fetchpriority="high">
+        <div class="cover__caption">
+          <h1>김준경 & 유경민</h1>
+          <p>2026년 8월 23일 일요일 오후 1시</p>
+          <p>서울대학교 연구공원 웨딩홀</p>
         </div>
       </section>
 
-      <section class="section schedule" aria-labelledby="schedule-title">
-        <p class="section-kicker">Date</p>
-        <h2 id="schedule-title">2026년 8월 23일 일요일<br>오후 1시</h2>
-        <div class="calendar-card" aria-label="2026년 8월 달력">
-          <div class="calendar-card__head">
+      <section class="panel invitation" aria-labelledby="invitation-title">
+        <p class="section-title" id="invitation-title">WEDDING INVITATION</p>
+        <p class="invitation__message">
+          서로에게 가장 편안한 사람으로 만나<br>
+          이제 한 길을 함께 걸어가려 합니다.<br>
+          귀한 걸음으로 축복해 주시면<br>
+          그 마음 오래도록 간직하겠습니다.
+        </p>
+        <div class="family-lines" aria-label="혼주와 신랑 신부">
+          <p>유석형 · 윤정화의 장남 <strong>유경민</strong></p>
+          <p>김재석 · 임미정의 장녀 <strong>김준경</strong></p>
+        </div>
+      </section>
+
+      <section class="panel date" aria-labelledby="date-title">
+        <p class="section-title" id="date-title">WEDDING DATE</p>
+        <h2>2026년 8월 23일 일요일<br>오후 1시</h2>
+        <div class="calendar" aria-label="2026년 8월 달력">
+          <div class="calendar__head">
             <span>August</span>
             <strong>2026</strong>
           </div>
@@ -63,115 +55,154 @@
             <span>30</span><span>31</span>
           </div>
         </div>
+        <button class="button button--primary" type="button" data-open-dday>D-DAY 보기</button>
       </section>
 
-      <section class="section venue" aria-labelledby="venue-title">
-        <p class="section-kicker">Venue</p>
-        <h2 id="venue-title">서울대학교 연구공원 웨딩홀</h2>
-        <p class="address" data-address>서울시 관악구 관악로1 서울대학교 연구공원 본관</p>
+      <section class="panel gallery" aria-labelledby="gallery-title">
+        <p class="section-title" id="gallery-title">GALLERY</p>
+        <div class="gallery-grid" aria-label="웨딩 갤러리">
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-01.jpg"><img src="assets/gallery-web/gallery-01.jpg" alt="웨딩 갤러리 사진 1" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-02.jpg"><img src="assets/gallery-web/gallery-02.jpg" alt="웨딩 갤러리 사진 2" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-03.jpg"><img src="assets/gallery-web/gallery-03.jpg" alt="웨딩 갤러리 사진 3" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-04.jpg"><img src="assets/gallery-web/gallery-04.jpg" alt="웨딩 갤러리 사진 4" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-05.jpg"><img src="assets/gallery-web/gallery-05.jpg" alt="웨딩 갤러리 사진 5" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-06.jpg"><img src="assets/gallery-web/gallery-06.jpg" alt="웨딩 갤러리 사진 6" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-07.jpg"><img src="assets/gallery-web/gallery-07.jpg" alt="웨딩 갤러리 사진 7" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-08.jpg"><img src="assets/gallery-web/gallery-08.jpg" alt="웨딩 갤러리 사진 8" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-09.jpg"><img src="assets/gallery-web/gallery-09.jpg" alt="웨딩 갤러리 사진 9" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-10.jpg"><img src="assets/gallery-web/gallery-10.jpg" alt="웨딩 갤러리 사진 10" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-11.jpg"><img src="assets/gallery-web/gallery-11.jpg" alt="웨딩 갤러리 사진 11" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-12.jpg"><img src="assets/gallery-web/gallery-12.jpg" alt="웨딩 갤러리 사진 12" loading="lazy" decoding="async"></button>
+        </div>
+      </section>
+
+      <section class="panel location" aria-labelledby="location-title">
+        <p class="section-title" id="location-title">LOCATION</p>
+        <h2>오시는 길</h2>
+        <p class="address" data-address>서울특별시 관악구 관악로 1 (서울특별시 관악구 신림동 산56-1)</p>
+        <button class="button" type="button" data-copy-address>주소 복사</button>
         <iframe
           class="map-frame"
-          title="서울대학교 연구공원 웨딩홀 카카오맵"
-          src="https://map.kakao.com/link/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80"
+          title="서울대학교 연구공원 웨딩홀 네이버 지도"
+          src="https://map.naver.com/p/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
         <div class="button-row">
-          <a class="button" href="https://map.kakao.com/link/search/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90%20%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">카카오맵</a>
-          <button class="button" type="button" data-copy-address>주소 복사</button>
+          <a class="button" href="https://map.naver.com/p/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">네이버 지도</a>
+          <a class="button" href="https://map.kakao.com/link/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">카카오맵</a>
         </div>
-      </section>
-
-      <section class="section directions" aria-labelledby="directions-title">
-        <p class="section-kicker">Directions</p>
-        <h2 id="directions-title">오시는 법</h2>
         <div class="info-list">
           <article>
             <span>지하철</span>
-            <p>2호선 낙성대역 4번 출구 → 첫 번째 골목 좌회전 → GS칼텍스 주유소 옆 관악02 마을버스 승차 → 서울대학교 후문 하차 후 연구공원 방향 도보 약 100m</p>
+            <p>2호선 낙성대역 4번 출구로 나와 관악 02-1, 02-2 승차</p>
           </article>
           <article>
             <span>버스</span>
-            <p>간선 461, 641 / 지선 5413, 5524, 5528 이용 후 낙성대입구에서 관악02 마을버스로 환승</p>
+            <p>461, 641, 5413, 5524, 5528번 버스 → 관악 02-1, 02-2 환승</p>
           </article>
           <article>
             <span>자동차</span>
-            <p>남부순환도로에서 낙성대 방향으로 진입 → 서울대 후문 방향 약 1.6km 직진 → 후문 직전 좌회전 → 샛길로 약 100m 진입</p>
+            <p>'연구공원 웨딩홀' 주차장 무료 이용 가능 (2시간)</p>
+          </article>
+          <article>
+            <span>주의사항</span>
+            <p>※ 서울대 정·후문을 차량으로 통과하는 경우 통행료 2,000원이 발생하오니 꼭 서울대 후문 방향으로 요금소 지나지 말고 와주세요!</p>
           </article>
         </div>
       </section>
 
-      <section class="section parking" aria-labelledby="parking-title">
-        <p class="section-kicker">Parking</p>
-        <h2 id="parking-title">주차 안내</h2>
-        <div class="notice">
-          <p>연구공원 본관 주차장을 이용하실 수 있습니다. 주말 예식 시간대에는 혼잡할 수 있으니 여유 있게 도착해 주세요.</p>
-          <p>서울대학교 정문 또는 후문을 차량으로 통과하는 경우 통행료 2,000원이 발생할 수 있습니다.</p>
-        </div>
-      </section>
-
-      <section class="section gallery" aria-labelledby="gallery-title">
-        <p class="section-kicker">Gallery</p>
-        <h2 id="gallery-title">우리의 순간</h2>
-        <div class="gallery-shell">
-          <img class="gallery-main" src="assets/gallery-web/gallery-01.jpg" alt="선택된 웨딩 갤러리 사진" data-gallery-main>
-          <div class="gallery-thumbs" aria-label="사진 선택 썸네일" tabindex="0">
-            <button class="is-active" type="button" data-gallery-src="assets/gallery-web/gallery-01.jpg" aria-label="갤러리 사진 1 선택"><img src="assets/gallery-web/gallery-01.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-02.jpg" aria-label="갤러리 사진 2 선택"><img src="assets/gallery-web/gallery-02.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-03.jpg" aria-label="갤러리 사진 3 선택"><img src="assets/gallery-web/gallery-03.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-04.jpg" aria-label="갤러리 사진 4 선택"><img src="assets/gallery-web/gallery-04.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-05.jpg" aria-label="갤러리 사진 5 선택"><img src="assets/gallery-web/gallery-05.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-06.jpg" aria-label="갤러리 사진 6 선택"><img src="assets/gallery-web/gallery-06.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-07.jpg" aria-label="갤러리 사진 7 선택"><img src="assets/gallery-web/gallery-07.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-08.jpg" aria-label="갤러리 사진 8 선택"><img src="assets/gallery-web/gallery-08.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-09.jpg" aria-label="갤러리 사진 9 선택"><img src="assets/gallery-web/gallery-09.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-10.jpg" aria-label="갤러리 사진 10 선택"><img src="assets/gallery-web/gallery-10.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-11.jpg" aria-label="갤러리 사진 11 선택"><img src="assets/gallery-web/gallery-11.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-12.jpg" aria-label="갤러리 사진 12 선택"><img src="assets/gallery-web/gallery-12.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-13.jpg" aria-label="갤러리 사진 13 선택"><img src="assets/gallery-web/gallery-13.jpg" alt="" loading="lazy" decoding="async"></button>
-            <button type="button" data-gallery-src="assets/gallery-web/gallery-14.jpg" aria-label="갤러리 사진 14 선택"><img src="assets/gallery-web/gallery-14.jpg" alt="" loading="lazy" decoding="async"></button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section account" aria-labelledby="account-title">
-        <p class="section-kicker">Account</p>
-        <h2 id="account-title">마음 전하실 곳</h2>
+      <section class="panel thanks" aria-labelledby="thanks-title">
+        <p class="section-title" id="thanks-title">THANKS TO</p>
         <details>
-          <summary>신랑 계좌</summary>
+          <summary>신랑측 계좌번호</summary>
           <div class="account-row">
-            <span data-account="은행명 000-0000-0000 유경민">은행명 000-0000-0000 유경민</span>
+            <span data-account="은행명 000-0000-0000 유경민">신랑 유경민<br>은행명 000-0000-0000</span>
+            <button type="button" data-copy-account>복사</button>
+          </div>
+          <div class="account-row">
+            <span data-account="은행명 000-0000-0000 유석형">신랑 아버지 유석형<br>은행명 000-0000-0000</span>
+            <button type="button" data-copy-account>복사</button>
+          </div>
+          <div class="account-row">
+            <span data-account="은행명 000-0000-0000 윤정화">신랑 어머니 윤정화<br>은행명 000-0000-0000</span>
             <button type="button" data-copy-account>복사</button>
           </div>
         </details>
         <details>
-          <summary>신부 계좌</summary>
+          <summary>신부측 계좌번호</summary>
           <div class="account-row">
-            <span data-account="은행명 000-0000-0000 김준경">은행명 000-0000-0000 김준경</span>
+            <span data-account="은행명 000-0000-0000 김준경">신부 김준경<br>은행명 000-0000-0000</span>
             <button type="button" data-copy-account>복사</button>
           </div>
-        </details>
-        <details>
-          <summary>신랑 혼주 계좌</summary>
           <div class="account-row">
-            <span data-account="은행명 000-0000-0000 혼주 성함">은행명 000-0000-0000 혼주 성함</span>
+            <span data-account="은행명 000-0000-0000 김재석">신부 아버지 김재석<br>은행명 000-0000-0000</span>
             <button type="button" data-copy-account>복사</button>
           </div>
-        </details>
-        <details>
-          <summary>신부 혼주 계좌</summary>
           <div class="account-row">
-            <span data-account="은행명 000-0000-0000 혼주 성함">은행명 000-0000-0000 혼주 성함</span>
+            <span data-account="은행명 000-0000-0000 임미정">신부 어머니 임미정<br>은행명 000-0000-0000</span>
             <button type="button" data-copy-account>복사</button>
           </div>
         </details>
       </section>
 
-      <section class="section closing" aria-label="마무리 인사">
-        <p>함께해주시는 마음 깊이 감사드립니다.</p>
-        <button class="button button--primary" type="button" data-share>청첩장 공유</button>
+      <section class="panel closing" aria-labelledby="closing-title">
+        <p class="section-title" id="closing-title">WITH US</p>
+        <button class="button button--primary" type="button" data-open-rsvp>참석여부 전달하기</button>
+        <button class="button" type="button" data-share>청첩장 공유</button>
       </section>
     </main>
+
+    <dialog class="modal dday-modal" data-dday-modal>
+      <div class="modal__body">
+        <button class="modal__close" type="button" data-close-modal aria-label="닫기">×</button>
+        <p class="section-title">D-DAY</p>
+        <strong data-dday-days>계산 중</strong>
+        <span data-dday-time>00일 00:00:00</span>
+      </div>
+    </dialog>
+
+    <dialog class="modal gallery-modal" data-gallery-modal>
+      <div class="gallery-modal__body">
+        <button class="modal__close modal__close--light" type="button" data-close-modal aria-label="닫기">×</button>
+        <img src="" alt="확대된 웨딩 갤러리 사진" data-gallery-preview>
+      </div>
+    </dialog>
+
+    <dialog class="modal rsvp-modal" data-rsvp-modal>
+      <form class="modal__body rsvp-form" method="dialog" data-rsvp-form novalidate>
+        <button class="modal__close" type="button" data-close-modal aria-label="닫기">×</button>
+        <p class="section-title">참석여부 전달</p>
+        <div class="segmented" role="radiogroup" aria-label="신랑측 신부측 선택">
+          <label>
+            <input type="radio" name="side" value="groom" required>
+            <span>신랑측</span>
+          </label>
+          <label>
+            <input type="radio" name="side" value="bride" required>
+            <span>신부측</span>
+          </label>
+        </div>
+        <label class="field">
+          <span>성함 *</span>
+          <input name="name" type="text" autocomplete="name" required>
+        </label>
+        <label class="field">
+          <span>소속</span>
+          <input name="group" type="text" placeholder="가족, 친구, 회사 등">
+        </label>
+        <label class="field">
+          <span>참여인원</span>
+          <input name="count" type="number" min="1" value="1" inputmode="numeric">
+        </label>
+        <fieldset class="attendance">
+          <legend>참석여부 *</legend>
+          <label><input type="radio" name="attendance" value="attend" required> 참석</label>
+          <label><input type="radio" name="attendance" value="absent" required> 불참</label>
+        </fieldset>
+        <button class="button button--primary" type="submit">완료</button>
+      </form>
+    </dialog>
 
     <div class="toast" role="status" aria-live="polite" data-toast></div>
     <script src="script.js"></script>
