@@ -79,6 +79,7 @@ legend {
 
 .panel {
   min-height: 100svh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,8 +88,17 @@ legend {
   text-align: center;
 }
 
-.panel + .panel {
+.panel + .panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
   border-top: 1px solid var(--line);
+}
+
+.cover + .panel::before {
+  top: 32px;
 }
 
 .cover {
@@ -191,8 +201,8 @@ h2 {
 .dday-inline {
   width: 100%;
   display: grid;
-  gap: 8px;
-  padding: 18px 0 0;
+  gap: 14px;
+  padding: 22px 0 0;
 }
 
 .dday-inline p {
@@ -203,15 +213,56 @@ h2 {
   letter-spacing: 0.18em;
 }
 
-.dday-inline strong {
-  color: var(--ink);
-  font-size: 1.54rem;
-  font-weight: 600;
+.dday-units {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
 }
 
-.dday-inline span {
+.dday-unit {
+  display: grid;
+  gap: 7px;
+}
+
+.dday-unit__label {
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+.dday-unit strong {
+  display: grid;
+  min-height: 46px;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--ivory);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--ink);
+  font-size: 1.18rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transform-origin: 50% 0;
+}
+
+.dday-unit strong.is-flipping {
+  animation: flip-number 360ms ease;
+}
+
+@keyframes flip-number {
+  0% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+  45% {
+    transform: rotateX(-78deg);
+    opacity: 0.48;
+  }
+
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
 }
 
 .calendar__head {
@@ -649,6 +700,15 @@ summary {
 
   .date-heading {
     font-size: 0.86rem;
+  }
+
+  .dday-units {
+    gap: 6px;
+  }
+
+  .dday-unit strong {
+    min-height: 40px;
+    font-size: 1rem;
   }
 
   .weekdays,

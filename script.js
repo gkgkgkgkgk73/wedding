@@ -90,14 +90,30 @@ document.querySelector("[data-share]")?.addEventListener("click", async () => {
   copyText(window.location.href, "청첩장 링크를 복사했어요.");
 });
 
-const ddayDays = document.querySelector("[data-dday-days]");
-const ddayTime = document.querySelector("[data-dday-time]");
+const ddayUnits = {
+  days: document.querySelector('[data-dday-unit="days"]'),
+  hours: document.querySelector('[data-dday-unit="hours"]'),
+  minutes: document.querySelector('[data-dday-unit="minutes"]'),
+  seconds: document.querySelector('[data-dday-unit="seconds"]')
+};
 
-function updateDday() {
-  if (!ddayDays || !ddayTime) {
+function setDdayUnit(unit, value) {
+  const element = ddayUnits[unit];
+  if (!element || element.textContent === value) {
     return;
   }
 
+  element.textContent = value;
+  element.classList.remove("is-flipping");
+  window.requestAnimationFrame(() => {
+    element.classList.add("is-flipping");
+  });
+  window.setTimeout(() => {
+    element.classList.remove("is-flipping");
+  }, 380);
+}
+
+function updateDday() {
   const diff = weddingDate.getTime() - Date.now();
   const absDiff = Math.abs(diff);
   const totalSeconds = Math.floor(absDiff / 1000);
@@ -107,8 +123,10 @@ function updateDday() {
   const seconds = totalSeconds % 60;
   const pad = (value) => String(value).padStart(2, "0");
 
-  ddayDays.textContent = diff >= 0 ? `D-${days}` : `D+${days}`;
-  ddayTime.textContent = `${days}일 ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+  setDdayUnit("days", String(days));
+  setDdayUnit("hours", pad(hours));
+  setDdayUnit("minutes", pad(minutes));
+  setDdayUnit("seconds", pad(seconds));
 }
 
 updateDday();
