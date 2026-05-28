@@ -125,6 +125,10 @@ legend {
   color: var(--ink);
 }
 
+.cover__caption p:last-child {
+  margin-bottom: calc(var(--section-gap) * 0.5);
+}
+
 .cover__caption h1 {
   margin: 0 0 8px;
   font-size: 1.22rem;
