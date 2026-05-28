@@ -100,7 +100,7 @@ legend {
   top: var(--separator-offset);
   left: 32px;
   right: 32px;
-  border-top: 1px solid var(--line);
+  border-top: 2px solid var(--line);
 }
 
 .cover {
