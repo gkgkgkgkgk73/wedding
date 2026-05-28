@@ -23,8 +23,8 @@
   --soft-title: #969088;
   --line: #ebe8df;
   --overlay: rgba(0, 0, 0, 0.82);
-  --section-gap: 76px;
-  --separator-offset: -38px;
+  --section-gap: 116px;
+  --separator-offset: -58px;
 }
 
 * {
@@ -663,8 +663,8 @@ summary {
 
 @media (max-width: 360px) {
   :root {
-    --section-gap: 64px;
-    --separator-offset: -32px;
+    --section-gap: 100px;
+    --separator-offset: -50px;
   }
 
   .panel {
