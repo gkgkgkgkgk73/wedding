@@ -358,9 +358,7 @@ h2 {
 }
 
 .location {
-  justify-content: flex-start;
-  padding-top: max(52px, calc(38px + env(safe-area-inset-top)));
-  padding-bottom: max(52px, calc(38px + env(safe-area-inset-bottom)));
+  justify-content: center;
 }
 
 .location .section-title {
@@ -393,8 +391,8 @@ h2 {
 .map-frame {
   display: block;
   width: 100%;
-  height: clamp(110px, 22dvh, 150px);
-  margin: 14px 0 12px;
+  height: clamp(240px, 42dvh, 320px);
+  margin: 18px 0 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--ivory);
