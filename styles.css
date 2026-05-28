@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -69,10 +70,15 @@ summary {
 
 .hero {
   position: relative;
-  min-height: auto;
-  padding: max(38px, calc(28px + env(safe-area-inset-top))) 24px 48px;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: max(24px, calc(18px + env(safe-area-inset-top))) 24px max(24px, calc(18px + env(safe-area-inset-bottom)));
   background: linear-gradient(180deg, var(--paper), var(--white));
   overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .hero__content {
@@ -105,10 +111,10 @@ summary {
 }
 
 .couple-title {
-  margin: 16px 0 18px;
+  margin: 10px 0 12px;
   color: var(--green-900);
   font-family: "MaruBuri", "Apple SD Gothic Neo", "Malgun Gothic", serif;
-  font-size: 2.28rem;
+  font-size: 1.92rem;
   font-weight: 600;
   line-height: 1.18;
   white-space: nowrap;
@@ -137,12 +143,12 @@ h2 {
 .date-line {
   width: fit-content;
   max-width: 100%;
-  margin: 0 auto 10px;
-  padding: 10px 14px;
+  margin: 0 auto 8px;
+  padding: 8px 12px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   color: var(--green-900);
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -150,24 +156,25 @@ h2 {
 .place-line {
   margin: 0;
   color: var(--muted);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
 }
 
 .hero__message {
-  margin: 28px 0 0;
+  margin: 14px 0 0;
   color: var(--muted);
-  font-size: 0.98rem;
-  line-height: 1.88;
+  font-size: 0.88rem;
+  line-height: 1.7;
 }
 
 .hero__photo {
   position: relative;
   z-index: 1;
   display: block;
-  width: 100%;
-  max-height: 58svh;
-  margin-top: 30px;
+  width: min(78vw, 300px);
+  max-width: 100%;
+  margin: 20px auto 0;
   aspect-ratio: 3 / 4;
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
   object-fit: cover;
@@ -176,8 +183,14 @@ h2 {
 }
 
 .section {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: clamp(54px, 13vw, 72px) 24px;
   border-top: 1px solid var(--line);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .schedule,
@@ -375,7 +388,8 @@ details {
 .gallery-main {
   display: block;
   width: 100%;
-  height: min(68svh, 620px);
+  aspect-ratio: 3 / 4;
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
   object-fit: contain;
@@ -500,7 +514,7 @@ summary {
 
 @media (max-width: 360px) {
   .couple-title {
-    font-size: 1.96rem;
+    font-size: 1.7rem;
   }
 
   h2 {
