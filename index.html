@@ -37,7 +37,7 @@
 
       <section class="panel date" aria-labelledby="date-title">
         <p class="section-title" id="date-title">WEDDING DATE</p>
-        <h2>2026년 8월 23일 일요일<br>오후 1시</h2>
+        <h2 class="date-heading">2026년 8월 23일 일요일 오후 1시</h2>
         <div class="calendar" aria-label="2026년 8월 달력">
           <div class="calendar__head">
             <span>August</span>
@@ -55,7 +55,11 @@
             <span>30</span><span>31</span>
           </div>
         </div>
-        <button class="button button--primary" type="button" data-open-dday>D-DAY 보기</button>
+        <div class="dday-inline" aria-label="예식일까지 남은 시간">
+          <p>D-DAY</p>
+          <strong data-dday-days>계산 중</strong>
+          <span data-dday-time>00일 00:00:00</span>
+        </div>
       </section>
 
       <section class="panel gallery" aria-labelledby="gallery-title">
@@ -92,24 +96,12 @@
           <a class="button" href="https://map.naver.com/p/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">네이버 지도</a>
           <a class="button" href="https://map.kakao.com/link/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">카카오맵</a>
         </div>
-        <div class="info-list">
-          <article>
-            <span>지하철</span>
-            <p>2호선 낙성대역 4번 출구로 나와 관악 02-1, 02-2 승차</p>
-          </article>
-          <article>
-            <span>버스</span>
-            <p>461, 641, 5413, 5524, 5528번 버스 → 관악 02-1, 02-2 환승</p>
-          </article>
-          <article>
-            <span>자동차</span>
-            <p>'연구공원 웨딩홀' 주차장 무료 이용 가능 (2시간)</p>
-          </article>
-          <article>
-            <span>주의사항</span>
-            <p>※ 서울대 정·후문을 차량으로 통과하는 경우 통행료 2,000원이 발생하오니 꼭 서울대 후문 방향으로 요금소 지나지 말고 와주세요!</p>
-          </article>
-        </div>
+        <article class="directions-card">
+          <p><strong>지하철</strong>2호선 낙성대역 4번 출구로 나와 관악 02-1, 02-2 승차</p>
+          <p><strong>버스</strong>461, 641, 5413, 5524, 5528번 버스 → 관악 02-1, 02-2 환승</p>
+          <p><strong>자동차</strong>'연구공원 웨딩홀' 주차장 무료 이용 가능 (2시간)</p>
+          <p><strong>주의사항</strong>※ 서울대 정·후문을 차량으로 통과하는 경우 통행료 2,000원이 발생하오니 꼭 서울대 후문 방향으로 요금소 지나지 말고 와주세요!</p>
+        </article>
       </section>
 
       <section class="panel thanks" aria-labelledby="thanks-title">
@@ -144,23 +136,13 @@
             <button type="button" data-copy-account>복사</button>
           </div>
         </details>
-      </section>
-
-      <section class="panel closing" aria-labelledby="closing-title">
-        <p class="section-title" id="closing-title">WITH US</p>
-        <button class="button button--primary" type="button" data-open-rsvp>참석여부 전달하기</button>
-        <button class="button" type="button" data-share>청첩장 공유</button>
+        <div class="with-us" aria-labelledby="with-us-title">
+          <p class="section-title" id="with-us-title">WITH US</p>
+          <button class="button button--primary" type="button" data-open-rsvp>참석여부 전달하기</button>
+          <button class="button" type="button" data-share>청첩장 공유</button>
+        </div>
       </section>
     </main>
-
-    <dialog class="modal dday-modal" data-dday-modal>
-      <div class="modal__body">
-        <button class="modal__close" type="button" data-close-modal aria-label="닫기">×</button>
-        <p class="section-title">D-DAY</p>
-        <strong data-dday-days>계산 중</strong>
-        <span data-dday-time>00일 00:00:00</span>
-      </div>
-    </dialog>
 
     <dialog class="modal gallery-modal" data-gallery-modal>
       <div class="gallery-modal__body">

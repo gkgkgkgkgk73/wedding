@@ -16,11 +16,11 @@
 
 :root {
   --white: #ffffff;
-  --ivory: #fbf7ee;
-  --ivory-deep: #f2eadb;
+  --ivory: #fffdf8;
+  --ivory-deep: #fbf8f1;
   --ink: #111111;
   --muted: #6f6a62;
-  --line: #eee5d6;
+  --line: #f1eadf;
   --overlay: rgba(0, 0, 0, 0.82);
 }
 
@@ -29,14 +29,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-}
-
-html,
-body {
-  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -83,8 +77,7 @@ legend {
 }
 
 .panel {
-  height: 100svh;
-  height: 100dvh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,32 +85,24 @@ legend {
   padding: max(34px, calc(22px + env(safe-area-inset-top))) 24px max(34px, calc(22px + env(safe-area-inset-bottom)));
   border-top: 1px solid var(--line);
   text-align: center;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .cover {
-  justify-content: space-between;
+  min-height: auto;
   padding: 0 0 max(24px, calc(18px + env(safe-area-inset-bottom)));
   border-top: 0;
-  overflow: hidden;
 }
 
 .cover__photo {
   display: block;
-  flex: 1 1 auto;
   width: 100%;
-  min-height: 0;
-  height: 100%;
+  aspect-ratio: 1 / 1.2;
+  height: auto;
   object-fit: cover;
   object-position: center 60%;
 }
 
 .cover__caption {
-  flex: 0 0 auto;
   width: 100%;
   padding: 18px 24px 0;
   background: var(--white);
@@ -126,7 +111,7 @@ legend {
 
 .cover__caption h1 {
   margin: 0 0 8px;
-  font-size: clamp(1.42rem, 5.4vw, 1.86rem);
+  font-size: 1.46rem;
   font-weight: 600;
   line-height: 1.25;
 }
@@ -153,6 +138,13 @@ h2 {
   font-size: 1.28rem;
   font-weight: 600;
   line-height: 1.65;
+}
+
+.date-heading {
+  width: 100%;
+  font-size: 1.04rem;
+  line-height: 1.45;
+  white-space: nowrap;
 }
 
 .invitation__message {
@@ -185,11 +177,40 @@ h2 {
 
 .calendar {
   width: 100%;
-  margin: 4px 0 18px;
+  margin: 4px 0 12px;
   padding: 20px 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--ivory);
+}
+
+.dday-inline {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--ivory);
+}
+
+.dday-inline p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.dday-inline strong {
+  color: var(--ink);
+  font-size: 1.54rem;
+  font-weight: 600;
+}
+
+.dday-inline span {
+  color: var(--muted);
+  font-size: 0.94rem;
 }
 
 .calendar__head {
@@ -212,7 +233,7 @@ h2 {
 .days {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: clamp(4px, 1.8vw, 8px);
+  gap: 6px;
   align-items: center;
 }
 
@@ -341,38 +362,38 @@ h2 {
   background: var(--ivory);
 }
 
-.info-list {
+.directions-card {
   width: 100%;
   display: grid;
-  gap: 6px;
+  gap: 8px;
   margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--ivory);
+  text-align: left;
+  padding: 12px;
 }
 
-.info-list article,
+.directions-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.52;
+}
+
+.directions-card strong {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 details {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--ivory);
   text-align: left;
-}
-
-.info-list article {
-  padding: 10px;
-}
-
-.info-list span {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.info-list p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.48;
 }
 
 details {
@@ -409,8 +430,16 @@ summary {
   cursor: pointer;
 }
 
-.closing {
+.with-us {
+  width: 100%;
+  display: grid;
   gap: 10px;
+  margin-top: 24px;
+}
+
+.with-us .section-title {
+  margin-bottom: 2px;
+  text-align: center;
 }
 
 .modal {
@@ -453,18 +482,6 @@ summary {
 
 .modal__close--light {
   background: rgba(255, 255, 255, 0.9);
-}
-
-.dday-modal strong {
-  display: block;
-  color: var(--ink);
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.dday-modal span {
-  color: var(--muted);
-  font-size: 1rem;
 }
 
 .gallery-modal {
@@ -621,7 +638,16 @@ summary {
   }
 
   .cover__caption h1 {
-    font-size: 1.42rem;
+    font-size: 1.22rem;
+  }
+
+  .date-heading {
+    font-size: 0.86rem;
+  }
+
+  .weekdays,
+  .days {
+    gap: 4px;
   }
 
   .gallery-grid {
