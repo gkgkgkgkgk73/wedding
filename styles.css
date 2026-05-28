@@ -16,11 +16,12 @@
 
 :root {
   --white: #ffffff;
-  --ivory: #fffdf8;
-  --ivory-deep: #fbf8f1;
+  --ivory: #fffffc;
+  --ivory-deep: #fffdf7;
   --ink: #111111;
-  --muted: #6f6a62;
-  --line: #f1eadf;
+  --muted: #76716a;
+  --soft-title: #969088;
+  --line: #f7f1e8;
   --overlay: rgba(0, 0, 0, 0.82);
 }
 
@@ -83,7 +84,6 @@ legend {
   align-items: center;
   justify-content: center;
   padding: max(34px, calc(22px + env(safe-area-inset-top))) 24px max(34px, calc(22px + env(safe-area-inset-bottom)));
-  border-top: 1px solid var(--line);
   text-align: center;
 }
 
@@ -111,7 +111,7 @@ legend {
 
 .cover__caption h1 {
   margin: 0 0 8px;
-  font-size: 1.46rem;
+  font-size: 1.22rem;
   font-weight: 600;
   line-height: 1.25;
 }
@@ -124,10 +124,10 @@ legend {
 }
 
 .section-title {
-  margin: 0 0 20px;
-  color: var(--ink);
+  margin: 0 0 28px;
+  color: var(--soft-title);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -187,18 +187,15 @@ h2 {
 .dday-inline {
   width: 100%;
   display: grid;
-  gap: 4px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--ivory);
+  gap: 8px;
+  padding: 18px 0 0;
 }
 
 .dday-inline p {
   margin: 0;
-  color: var(--ink);
+  color: var(--soft-title);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.18em;
 }
 
@@ -332,19 +329,25 @@ h2 {
 }
 
 .location .section-title {
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 
 .location h2 {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   font-size: 1.12rem;
   line-height: 1.4;
 }
 
 .location .address {
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   font-size: 0.84rem;
-  line-height: 1.45;
+  line-height: 1.65;
+}
+
+.location .address span {
+  display: inline-block;
+  margin-top: 3px;
+  color: var(--muted);
 }
 
 .location .button {
@@ -356,7 +359,7 @@ h2 {
   display: block;
   width: 100%;
   height: clamp(110px, 22dvh, 150px);
-  margin: 10px 0 8px;
+  margin: 14px 0 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--ivory);
@@ -365,27 +368,24 @@ h2 {
 .directions-card {
   width: 100%;
   display: grid;
-  gap: 8px;
-  margin-top: 8px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--ivory);
+  gap: 14px;
+  margin-top: 18px;
   text-align: left;
-  padding: 12px;
+  padding: 0 2px;
 }
 
 .directions-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.52;
+  font-size: 0.82rem;
+  line-height: 1.7;
 }
 
 .directions-card strong {
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   color: var(--ink);
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   font-weight: 600;
 }
 
@@ -433,12 +433,12 @@ summary {
 .with-us {
   width: 100%;
   display: grid;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 14px;
+  margin-top: 54px;
 }
 
 .with-us .section-title {
-  margin-bottom: 2px;
+  margin-bottom: 6px;
   text-align: center;
 }
 
@@ -638,7 +638,7 @@ summary {
   }
 
   .cover__caption h1 {
-    font-size: 1.22rem;
+    font-size: 1.08rem;
   }
 
   .date-heading {
