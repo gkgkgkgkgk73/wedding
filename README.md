@@ -1,7 +1,5 @@
 # Mobile Wedding Invitation
 
-GitHub Pages용 모바일 청첩장입니다. 흰색 배경과 초록색 팔레트(`#1E6F54`, `#03462E`, `#46A477`)를 중심으로 구성했습니다.
-
 ## 수정할 곳
 
 - `index.html`: 신랑/신부 이름, 부모님 성함, 계좌번호 문구
