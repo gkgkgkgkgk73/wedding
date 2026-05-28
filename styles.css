@@ -30,9 +30,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+html,
+body {
+  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -51,6 +55,11 @@ input {
   font: inherit;
 }
 
+img,
+iframe {
+  max-width: 100%;
+}
+
 h1,
 h2,
 p,
@@ -67,63 +76,70 @@ legend {
 
 .invite {
   width: min(100%, 460px);
-  min-height: 100svh;
+  min-height: 100dvh;
   margin: 0 auto;
   background: var(--white);
   overflow: hidden;
 }
 
 .panel {
-  min-height: 100svh;
+  height: 100svh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: max(42px, calc(28px + env(safe-area-inset-top))) 24px max(42px, calc(28px + env(safe-area-inset-bottom)));
+  padding: max(34px, calc(22px + env(safe-area-inset-top))) 24px max(34px, calc(22px + env(safe-area-inset-bottom)));
   border-top: 1px solid var(--line);
   text-align: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 
 .cover {
   justify-content: space-between;
-  padding: 0 0 max(34px, calc(24px + env(safe-area-inset-bottom)));
+  padding: 0 0 max(24px, calc(18px + env(safe-area-inset-bottom)));
   border-top: 0;
+  overflow: hidden;
 }
 
 .cover__photo {
   display: block;
+  flex: 1 1 auto;
   width: 100%;
-  aspect-ratio: 1 / 1.22;
-  height: auto;
+  min-height: 0;
+  height: 100%;
   object-fit: cover;
   object-position: center 60%;
 }
 
 .cover__caption {
+  flex: 0 0 auto;
   width: 100%;
-  padding: 24px 24px 0;
+  padding: 18px 24px 0;
   background: var(--white);
   color: var(--ink);
 }
 
 .cover__caption h1 {
-  margin: 0 0 10px;
-  font-size: clamp(1.5rem, 6vw, 2rem);
+  margin: 0 0 8px;
+  font-size: clamp(1.42rem, 5.4vw, 1.86rem);
   font-weight: 600;
   line-height: 1.25;
 }
 
 .cover__caption p {
-  margin: 6px 0 0;
+  margin: 5px 0 0;
   color: var(--ink);
-  font-size: 0.96rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .section-title {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   color: var(--ink);
   font-size: 0.78rem;
   font-weight: 600;
@@ -256,9 +272,10 @@ h2 {
 }
 
 .gallery-grid {
-  width: 100%;
+  width: min(100%, 330px);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -287,11 +304,38 @@ h2 {
   line-height: 1.65;
 }
 
+.location {
+  justify-content: flex-start;
+  padding-top: max(24px, calc(18px + env(safe-area-inset-top)));
+  padding-bottom: max(24px, calc(18px + env(safe-area-inset-bottom)));
+}
+
+.location .section-title {
+  margin-bottom: 10px;
+}
+
+.location h2 {
+  margin-bottom: 10px;
+  font-size: 1.12rem;
+  line-height: 1.4;
+}
+
+.location .address {
+  margin-bottom: 8px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.location .button {
+  min-height: 38px;
+  font-size: 0.82rem;
+}
+
 .map-frame {
   display: block;
   width: 100%;
-  height: 220px;
-  margin: 14px 0 10px;
+  height: clamp(110px, 22dvh, 150px);
+  margin: 10px 0 8px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--ivory);
@@ -300,8 +344,8 @@ h2 {
 .info-list {
   width: 100%;
   display: grid;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .info-list article,
@@ -313,12 +357,12 @@ details {
 }
 
 .info-list article {
-  padding: 14px;
+  padding: 10px;
 }
 
 .info-list span {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--ink);
   font-size: 0.82rem;
   font-weight: 600;
@@ -327,8 +371,8 @@ details {
 .info-list p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.7;
+  font-size: 0.78rem;
+  line-height: 1.48;
 }
 
 details {

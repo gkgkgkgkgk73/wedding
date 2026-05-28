@@ -9,6 +9,41 @@ const wedding = {
   rsvpEndpoint: "/api/rsvp"
 };
 
+let snapTimer;
+let isSnapping = false;
+
+function snapToNearestPanel() {
+  if (isSnapping || document.querySelector("dialog[open]")) {
+    return;
+  }
+
+  const panels = [...document.querySelectorAll(".panel")];
+  if (panels.length === 0) {
+    return;
+  }
+
+  const currentTop = window.scrollY;
+  const nearest = panels.reduce((best, panel) => {
+    const distance = Math.abs(panel.offsetTop - currentTop);
+    return distance < best.distance ? { panel, distance } : best;
+  }, { panel: panels[0], distance: Infinity }).panel;
+
+  if (Math.abs(nearest.offsetTop - currentTop) < 2) {
+    return;
+  }
+
+  isSnapping = true;
+  window.scrollTo({ top: nearest.offsetTop, behavior: "smooth" });
+  window.setTimeout(() => {
+    isSnapping = false;
+  }, 420);
+}
+
+window.addEventListener("scroll", () => {
+  window.clearTimeout(snapTimer);
+  snapTimer = window.setTimeout(snapToNearestPanel, 140);
+}, { passive: true });
+
 function showToast(message) {
   if (!toast) {
     return;
