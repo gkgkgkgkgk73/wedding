@@ -392,28 +392,18 @@ h2 {
   font-size: 0.82rem;
 }
 
-.map-static {
+.map-frame {
   display: block;
   width: 100%;
+  height: clamp(240px, 42dvh, 320px);
   margin: 18px 0 16px;
-  color: inherit;
-  text-decoration: none;
-}
-
-.map-static__image {
-  display: block;
-  width: 100%;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--ivory);
 }
 
-.map-static__hint {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.84rem;
-  color: var(--muted);
-  text-align: right;
+.map-embed {
+  width: 100%;
 }
 
 .directions-card {
