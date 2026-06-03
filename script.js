@@ -217,7 +217,15 @@ const galleryModal = document.querySelector("[data-gallery-modal]");
 const galleryBody = document.querySelector("[data-gallery-body]");
 const galleryPreview = document.querySelector("[data-gallery-preview]");
 const galleryButtons = Array.from(document.querySelectorAll("[data-gallery-src]"));
+const galleryMotionClassNames = [
+  "is-exiting-left",
+  "is-exiting-right",
+  "is-entering-left",
+  "is-entering-right"
+];
+const galleryTransitionMs = 220;
 let currentGalleryIndex = 0;
+let isGalleryAnimating = false;
 
 function renderGalleryImage(index) {
   const button = galleryButtons[index];
@@ -235,12 +243,38 @@ function renderGalleryImage(index) {
 }
 
 function stepGallery(direction) {
-  if (!galleryButtons.length) {
+  if (!galleryButtons.length || !galleryPreview || isGalleryAnimating) {
     return;
   }
 
   const nextIndex = (currentGalleryIndex + direction + galleryButtons.length) % galleryButtons.length;
-  renderGalleryImage(nextIndex);
+
+  if (nextIndex === currentGalleryIndex) {
+    return;
+  }
+
+  const exitClass = direction > 0 ? "is-exiting-left" : "is-exiting-right";
+  const enterClass = direction > 0 ? "is-entering-right" : "is-entering-left";
+
+  isGalleryAnimating = true;
+  galleryPreview.classList.remove(...galleryMotionClassNames);
+  galleryPreview.classList.add(exitClass);
+
+  window.setTimeout(() => {
+    renderGalleryImage(nextIndex);
+    galleryPreview.classList.remove(...galleryMotionClassNames);
+    galleryPreview.classList.add(enterClass);
+    void galleryPreview.offsetWidth;
+
+    window.requestAnimationFrame(() => {
+      galleryPreview.classList.remove(enterClass);
+    });
+
+    window.setTimeout(() => {
+      galleryPreview.classList.remove(...galleryMotionClassNames);
+      isGalleryAnimating = false;
+    }, galleryTransitionMs);
+  }, galleryTransitionMs);
 }
 
 galleryButtons.forEach((button, index) => {
