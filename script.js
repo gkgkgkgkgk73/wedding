@@ -6,7 +6,8 @@ const wedding = {
   dateText: "2026년 8월 23일 일요일 오후 1시",
   place: "서울대학교 연구공원 웨딩홀",
   address: "서울특별시 관악구 관악로 1 (서울특별시 관악구 신림동 산56-1)",
-  rsvpEndpoint: "/api/rsvp"
+  rsvpEndpoint: "/api/rsvp",
+  kakaoJavascriptKey: "0bbcc99e7cbf96ce3794c12d758c14d1"
 };
 
 function showToast(message) {
@@ -75,7 +76,54 @@ document.querySelectorAll("[data-copy-account]").forEach((button) => {
   });
 });
 
+function initializeKakaoShare() {
+  if (!window.Kakao) {
+    return false;
+  }
+
+  if (!window.Kakao.isInitialized()) {
+    window.Kakao.init(wedding.kakaoJavascriptKey);
+  }
+
+  return true;
+}
+
+function shareWithKakao() {
+  const imageUrl = new URL("assets/head_ver2.JPG", window.location.href).toString();
+
+  window.Kakao.Share.sendDefault({
+    objectType: "feed",
+    content: {
+      title: wedding.title,
+      description: `${wedding.dateText} · ${wedding.place}`,
+      imageUrl,
+      link: {
+        mobileWebUrl: window.location.href,
+        webUrl: window.location.href
+      }
+    },
+    buttons: [
+      {
+        title: "청첩장 보기",
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href
+        }
+      }
+    ]
+  });
+}
+
 document.querySelector("[data-share]")?.addEventListener("click", async () => {
+  if (initializeKakaoShare()) {
+    try {
+      shareWithKakao();
+      return;
+    } catch {
+      showToast("카카오 공유 설정을 확인해주세요.");
+    }
+  }
+
   const shareData = {
     title: wedding.title,
     text: `${wedding.dateText} ${wedding.place}`,
@@ -133,8 +181,6 @@ const galleryModal = document.querySelector("[data-gallery-modal]");
 const galleryBody = document.querySelector("[data-gallery-body]");
 const galleryPreview = document.querySelector("[data-gallery-preview]");
 const galleryButtons = Array.from(document.querySelectorAll("[data-gallery-src]"));
-const galleryPrevButton = document.querySelector("[data-gallery-prev]");
-const galleryNextButton = document.querySelector("[data-gallery-next]");
 let currentGalleryIndex = 0;
 
 function renderGalleryImage(index) {
@@ -166,14 +212,6 @@ galleryButtons.forEach((button, index) => {
     renderGalleryImage(index);
     openDialog(galleryModal);
   });
-});
-
-galleryPrevButton?.addEventListener("click", () => {
-  stepGallery(-1);
-});
-
-galleryNextButton?.addEventListener("click", () => {
-  stepGallery(1);
 });
 
 galleryModal?.addEventListener("keydown", (event) => {

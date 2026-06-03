@@ -572,30 +572,6 @@ summary {
   touch-action: pan-y;
 }
 
-.gallery-modal__nav {
-  position: absolute;
-  top: 50%;
-  z-index: 1;
-  width: 44px;
-  height: 44px;
-  margin-top: -22px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  color: var(--ink);
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.gallery-modal__nav--prev {
-  left: 16px;
-}
-
-.gallery-modal__nav--next {
-  right: 16px;
-}
-
 .rsvp-form {
   text-align: left;
 }
@@ -754,13 +730,5 @@ summary {
 
   .button-row {
     grid-template-columns: 1fr;
-  }
-
-  .gallery-modal__nav--prev {
-    left: 10px;
-  }
-
-  .gallery-modal__nav--next {
-    right: 10px;
   }
 }
