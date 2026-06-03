@@ -223,9 +223,32 @@ const galleryMotionClassNames = [
   "is-entering-left",
   "is-entering-right"
 ];
-const galleryTransitionMs = 220;
+const galleryTransitionMs = 160;
 let currentGalleryIndex = 0;
 let isGalleryAnimating = false;
+const galleryImageCache = new Map();
+
+function preloadGalleryImage(source) {
+  if (!source) {
+    return Promise.resolve();
+  }
+
+  if (galleryImageCache.has(source)) {
+    return galleryImageCache.get(source);
+  }
+
+  const loader = new Image();
+  loader.decoding = "async";
+
+  const promise = new Promise((resolve) => {
+    loader.onload = () => resolve();
+    loader.onerror = () => resolve();
+    loader.src = source;
+  });
+
+  galleryImageCache.set(source, promise);
+  return promise;
+}
 
 function renderGalleryImage(index) {
   const button = galleryButtons[index];
@@ -242,7 +265,7 @@ function renderGalleryImage(index) {
   galleryPreview.alt = thumbnail?.alt || "확대된 웨딩 갤러리 사진";
 }
 
-function stepGallery(direction) {
+async function stepGallery(direction) {
   if (!galleryButtons.length || !galleryPreview || isGalleryAnimating) {
     return;
   }
@@ -255,6 +278,9 @@ function stepGallery(direction) {
 
   const exitClass = direction > 0 ? "is-exiting-left" : "is-exiting-right";
   const enterClass = direction > 0 ? "is-entering-right" : "is-entering-left";
+  const nextSource = galleryButtons[nextIndex]?.dataset.gallerySrc || "";
+
+  await preloadGalleryImage(nextSource);
 
   isGalleryAnimating = true;
   galleryPreview.classList.remove(...galleryMotionClassNames);
@@ -264,7 +290,6 @@ function stepGallery(direction) {
     renderGalleryImage(nextIndex);
     galleryPreview.classList.remove(...galleryMotionClassNames);
     galleryPreview.classList.add(enterClass);
-    void galleryPreview.offsetWidth;
 
     window.requestAnimationFrame(() => {
       galleryPreview.classList.remove(enterClass);
@@ -278,6 +303,8 @@ function stepGallery(direction) {
 }
 
 galleryButtons.forEach((button, index) => {
+  preloadGalleryImage(button.dataset.gallerySrc || "");
+
   button.addEventListener("click", () => {
     renderGalleryImage(index);
     openDialog(galleryModal);
