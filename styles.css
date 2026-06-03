@@ -23,8 +23,8 @@
   --soft-title: #969088;
   --line: #ebe8df;
   --overlay: rgba(0, 0, 0, 0.82);
-  --section-gap: 116px;
-  --separator-offset: -58px;
+  --section-gap: 76px;
+  --separator-offset: -38px;
 }
 
 * {
@@ -80,13 +80,13 @@ legend {
 }
 
 .panel {
-  min-height: 100svh;
+  min-height: auto;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: max(43.5px, calc(31.5px + env(safe-area-inset-top))) 24px max(43.5px, calc(31.5px + env(safe-area-inset-bottom)));
+  padding: max(34px, calc(22px + env(safe-area-inset-top))) 24px max(34px, calc(22px + env(safe-area-inset-bottom)));
   text-align: center;
 }
 
@@ -197,7 +197,7 @@ h2 {
 
 .calendar {
   width: 100%;
-  margin: 4px 0 12px;
+  margin: 4px 0 0;
   padding: 20px 16px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -208,7 +208,7 @@ h2 {
   width: 100%;
   display: grid;
   gap: 14px;
-  padding: 22px 0 0;
+  padding: 34px 0 0;
 }
 
 .dday-inline p {
@@ -400,10 +400,12 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--ivory);
+  object-fit: cover;
 }
 
 .map-embed {
   width: 100%;
+  display: block;
 }
 
 .directions-card {
@@ -428,6 +430,20 @@ h2 {
   color: var(--ink);
   font-size: 0.84rem;
   font-weight: 600;
+}
+
+.callout {
+  display: grid;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #f7efe6;
+  border: 1px solid #e7d6c3;
+}
+
+.callout p {
+  margin: 0;
 }
 
 details {
@@ -553,6 +569,31 @@ summary {
   max-height: 100%;
   border-radius: 8px;
   object-fit: contain;
+  touch-action: pan-y;
+}
+
+.gallery-modal__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-modal__nav--prev {
+  left: 16px;
+}
+
+.gallery-modal__nav--next {
+  right: 16px;
 }
 
 .rsvp-form {
@@ -669,15 +710,15 @@ summary {
 
 @media (max-width: 360px) {
   :root {
-    --section-gap: 100px;
-    --separator-offset: -50px;
+    --section-gap: 64px;
+    --separator-offset: -32px;
   }
 
   .panel {
     padding-left: 18px;
     padding-right: 18px;
-    padding-top: max(37.5px, calc(25.5px + env(safe-area-inset-top)));
-    padding-bottom: max(37.5px, calc(25.5px + env(safe-area-inset-bottom)));
+    padding-top: max(28px, calc(16px + env(safe-area-inset-top)));
+    padding-bottom: max(28px, calc(16px + env(safe-area-inset-bottom)));
   }
 
   .cover__caption {
@@ -713,5 +754,13 @@ summary {
 
   .button-row {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-modal__nav--prev {
+    left: 10px;
+  }
+
+  .gallery-modal__nav--next {
+    right: 10px;
   }
 }

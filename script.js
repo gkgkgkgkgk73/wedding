@@ -14,9 +14,13 @@ function showToast(message) {
     return;
   }
 
-  toast.textContent = message;
-  toast.classList.add("is-visible");
   window.clearTimeout(showToast.timer);
+  window.cancelAnimationFrame(showToast.frame);
+  toast.classList.remove("is-visible");
+  toast.textContent = message;
+  showToast.frame = window.requestAnimationFrame(() => {
+    toast.classList.add("is-visible");
+  });
   showToast.timer = window.setTimeout(() => {
     toast.classList.remove("is-visible");
   }, 1800);
@@ -126,17 +130,94 @@ updateDday();
 window.setInterval(updateDday, 1000);
 
 const galleryModal = document.querySelector("[data-gallery-modal]");
+const galleryBody = document.querySelector("[data-gallery-body]");
 const galleryPreview = document.querySelector("[data-gallery-preview]");
+const galleryButtons = Array.from(document.querySelectorAll("[data-gallery-src]"));
+const galleryPrevButton = document.querySelector("[data-gallery-prev]");
+const galleryNextButton = document.querySelector("[data-gallery-next]");
+let currentGalleryIndex = 0;
 
-document.querySelectorAll("[data-gallery-src]").forEach((button) => {
+function renderGalleryImage(index) {
+  const button = galleryButtons[index];
+
+  if (!button || !galleryPreview) {
+    return;
+  }
+
+  const source = button.dataset.gallerySrc || "";
+  const thumbnail = button.querySelector("img");
+
+  currentGalleryIndex = index;
+  galleryPreview.src = source;
+  galleryPreview.alt = thumbnail?.alt || "확대된 웨딩 갤러리 사진";
+}
+
+function stepGallery(direction) {
+  if (!galleryButtons.length) {
+    return;
+  }
+
+  const nextIndex = (currentGalleryIndex + direction + galleryButtons.length) % galleryButtons.length;
+  renderGalleryImage(nextIndex);
+}
+
+galleryButtons.forEach((button, index) => {
   button.addEventListener("click", () => {
-    if (!galleryPreview) {
-      return;
-    }
-
-    galleryPreview.src = button.dataset.gallerySrc;
+    renderGalleryImage(index);
     openDialog(galleryModal);
   });
+});
+
+galleryPrevButton?.addEventListener("click", () => {
+  stepGallery(-1);
+});
+
+galleryNextButton?.addEventListener("click", () => {
+  stepGallery(1);
+});
+
+galleryModal?.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") {
+    stepGallery(-1);
+  }
+
+  if (event.key === "ArrowRight") {
+    stepGallery(1);
+  }
+});
+
+let touchStartX = 0;
+let touchDeltaX = 0;
+
+galleryPreview?.addEventListener(
+  "touchstart",
+  (event) => {
+    touchStartX = event.changedTouches[0]?.clientX || 0;
+    touchDeltaX = 0;
+  },
+  { passive: true }
+);
+
+galleryPreview?.addEventListener(
+  "touchmove",
+  (event) => {
+    touchDeltaX = (event.changedTouches[0]?.clientX || 0) - touchStartX;
+  },
+  { passive: true }
+);
+
+galleryPreview?.addEventListener("touchend", () => {
+  if (Math.abs(touchDeltaX) < 48) {
+    return;
+  }
+
+  stepGallery(touchDeltaX > 0 ? -1 : 1);
+});
+
+galleryBody?.addEventListener("click", (event) => {
+  if (event.target === galleryBody) {
+    closeDialog(galleryModal);
+  }
 });
 
 const rsvpModal = document.querySelector("[data-rsvp-modal]");

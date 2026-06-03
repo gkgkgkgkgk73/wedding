@@ -93,23 +93,19 @@
           <button type="button" data-gallery-src="assets/gallery-web/gallery-10.jpg"><img src="assets/gallery-web/gallery-10.jpg" alt="웨딩 갤러리 사진 10" loading="lazy" decoding="async"></button>
           <button type="button" data-gallery-src="assets/gallery-web/gallery-11.jpg"><img src="assets/gallery-web/gallery-11.jpg" alt="웨딩 갤러리 사진 11" loading="lazy" decoding="async"></button>
           <button type="button" data-gallery-src="assets/gallery-web/gallery-12.jpg"><img src="assets/gallery-web/gallery-12.jpg" alt="웨딩 갤러리 사진 12" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-13.jpg"><img src="assets/gallery-web/gallery-13.jpg" alt="웨딩 갤러리 사진 13" loading="lazy" decoding="async"></button>
+          <button type="button" data-gallery-src="assets/gallery-web/gallery-14.jpg"><img src="assets/gallery-web/gallery-14.jpg" alt="웨딩 갤러리 사진 14" loading="lazy" decoding="async"></button>
         </div>
       </section>
 
       <section class="panel location" aria-labelledby="location-title">
         <p class="section-title" id="location-title">LOCATION</p>
         <h2>오시는 길</h2>
-        <p class="address" data-address>서울특별시 관악구 관악로 1<br><span>(서울특별시 관악구 신림동 산56-1)</span></p>
+        <p class="address" data-address>서울특별시 관악구 관악로 1 연구공원<br><span>(서울특별시 관악구 신림동 산56-1)</span></p>
         <button class="button" type="button" data-copy-address>주소 복사</button>
-        <div class="map-embed" aria-label="카카오맵">
-          <iframe
-            class="map-frame"
-            title="서울대학교 연구공원 웨딩홀 카카오맵"
-            src="https://map.kakao.com/?q=%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
+        <a class="map-embed" href="https://map.kakao.com/link/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer" aria-label="연구공원 웨딩홀 지도 크게 보기">
+          <img class="map-frame" src="assets/map.png" alt="서울대학교 연구공원 웨딩홀 지도 미리보기" loading="lazy" decoding="async">
+        </a>
         <div class="button-row">
           <a class="button" href="https://map.naver.com/v5/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">네이버 지도</a>
           <a class="button" href="https://map.kakao.com/link/search/%EC%97%B0%EA%B5%AC%EA%B3%B5%EC%9B%90%20%EC%9B%A8%EB%94%A9%ED%99%80" target="_blank" rel="noreferrer">카카오맵</a>
@@ -118,12 +114,15 @@
           <p><strong>지하철</strong>2호선 낙성대역 4번 출구로 나와 관악 02-1, 02-2 승차</p>
           <p><strong>버스</strong>461, 641, 5413, 5524, 5528번 버스 → 관악 02-1, 02-2 환승</p>
           <p><strong>자동차</strong>'연구공원 웨딩홀' 주차장 무료 이용 가능 (2시간)</p>
-          <p><strong>주의사항</strong>※ 서울대 정·후문을 차량으로 통과하는 경우 통행료 2,000원이 발생하오니 꼭 서울대 후문 방향으로 요금소 지나지 말고 와주세요!</p>
+          <aside class="callout" aria-label="주차 및 통행 주의사항">
+            <strong>주의사항</strong>
+            <p>서울대 정문·후문을 차량으로 통과하면 통행료 2,000원이 발생하니, 꼭 서울대 후문 방향 요금소를 지나지 않도록 와주세요.</p>
+          </aside>
         </article>
       </section>
 
       <section class="panel thanks" aria-labelledby="thanks-title">
-        <p class="section-title" id="thanks-title">THANKS TO</p>
+        <p class="section-title" id="thanks-title">SEND LOVE</p>
         <details>
           <summary>신랑측 계좌번호</summary>
           <div class="account-row">
@@ -163,9 +162,11 @@
     </main>
 
     <dialog class="modal gallery-modal" data-gallery-modal>
-      <div class="gallery-modal__body">
+      <div class="gallery-modal__body" data-gallery-body>
+        <button class="gallery-modal__nav gallery-modal__nav--prev" type="button" data-gallery-prev aria-label="이전 사진">‹</button>
         <button class="modal__close modal__close--light" type="button" data-close-modal aria-label="닫기">×</button>
         <img src="" alt="확대된 웨딩 갤러리 사진" data-gallery-preview>
+        <button class="gallery-modal__nav gallery-modal__nav--next" type="button" data-gallery-next aria-label="다음 사진">›</button>
       </div>
     </dialog>
 
