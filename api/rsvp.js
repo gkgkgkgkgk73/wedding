@@ -1,4 +1,4 @@
-const memoryStore = [];
+const { sql } = require("@vercel/postgres");
 
 function readBody(req) {
   return new Promise((resolve, reject) => {
@@ -27,7 +27,7 @@ function validateRsvp(payload) {
     errors.push("side");
   }
 
-  if (!payload.name || typeof payload.name !== "string") {
+  if (!payload.name || typeof payload.name !== "string" || !payload.name.trim()) {
     errors.push("name");
   }
 
@@ -35,7 +35,28 @@ function validateRsvp(payload) {
     errors.push("attendance");
   }
 
+  const count = Number(payload.count || 1);
+
+  if (!Number.isInteger(count) || count < 1) {
+    errors.push("count");
+  }
+
   return errors;
+}
+
+async function ensureTable() {
+  await sql`
+    CREATE TABLE IF NOT EXISTS rsvps (
+      id TEXT PRIMARY KEY,
+      side TEXT NOT NULL,
+      name TEXT NOT NULL,
+      guest_group TEXT NOT NULL DEFAULT '',
+      count INTEGER NOT NULL,
+      attendance TEXT NOT NULL,
+      submitted_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `;
 }
 
 async function saveRsvp(payload) {
@@ -43,13 +64,26 @@ async function saveRsvp(payload) {
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     side: payload.side,
     name: payload.name.trim(),
-    group: payload.group || "",
+    group: String(payload.group || "").trim(),
     count: Number(payload.count || 1),
     attendance: payload.attendance,
     submittedAt: payload.submittedAt || new Date().toISOString()
   };
 
-  memoryStore.push(record);
+  await ensureTable();
+
+  await sql`
+    INSERT INTO rsvps (id, side, name, guest_group, count, attendance, submitted_at)
+    VALUES (
+      ${record.id},
+      ${record.side},
+      ${record.name},
+      ${record.group},
+      ${record.count},
+      ${record.attendance},
+      ${record.submittedAt}
+    )
+  `;
 
   return record;
 }
@@ -87,9 +121,14 @@ module.exports = async function handler(req, res) {
     res.statusCode = 201;
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.end(JSON.stringify({ ok: true, id: record.id }));
-  } catch {
+  } catch (error) {
     res.statusCode = 500;
     res.setHeader("Content-Type", "application/json; charset=utf-8");
-    res.end(JSON.stringify({ error: "Unable to save RSVP" }));
+    res.end(
+      JSON.stringify({
+        error: "Unable to save RSVP",
+        detail: error && error.message ? error.message : "Unknown error"
+      })
+    );
   }
 };
