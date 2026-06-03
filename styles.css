@@ -105,7 +105,7 @@ legend {
 
 .cover {
   min-height: auto;
-  padding: 0 0 max(58px, calc(42px + env(safe-area-inset-bottom)));
+  padding: 0 0 calc(var(--section-gap) * 0.75);
   border-top: 0;
 }
 
@@ -126,7 +126,7 @@ legend {
 }
 
 .cover__caption p:last-child {
-  margin-bottom: calc(var(--section-gap) * 0.5);
+  margin-bottom: 0;
 }
 
 .cover__caption h1 {
@@ -575,13 +575,13 @@ summary {
 }
 
 .gallery-modal img.is-exiting-left,
-.gallery-modal img.is-entering-right {
+.gallery-modal img.is-entering-left {
   transform: translateX(-42px);
   opacity: 0;
 }
 
 .gallery-modal img.is-exiting-right,
-.gallery-modal img.is-entering-left {
+.gallery-modal img.is-entering-right {
   transform: translateX(42px);
   opacity: 0;
 }

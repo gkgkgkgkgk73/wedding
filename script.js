@@ -76,6 +76,10 @@ function openDialog(dialog) {
     return;
   }
 
+  if (dialog.hasAttribute("data-preserve-scroll")) {
+    dialog.dataset.scrollY = String(window.scrollY);
+  }
+
   if (typeof dialog.showModal === "function") {
     dialog.showModal();
     return;
@@ -89,12 +93,21 @@ function closeDialog(dialog) {
     return;
   }
 
+  const savedScrollY = dialog.hasAttribute("data-preserve-scroll")
+    ? Number(dialog.dataset.scrollY || window.scrollY)
+    : null;
+
   if (typeof dialog.close === "function") {
     dialog.close();
-    return;
+  } else {
+    dialog.removeAttribute("open");
   }
 
-  dialog.removeAttribute("open");
+  if (savedScrollY !== null) {
+    window.requestAnimationFrame(() => {
+      window.scrollTo(0, savedScrollY);
+    });
+  }
 }
 
 document.querySelector("[data-copy-address]")?.addEventListener("click", () => {
@@ -290,6 +303,7 @@ async function stepGallery(direction) {
     renderGalleryImage(nextIndex);
     galleryPreview.classList.remove(...galleryMotionClassNames);
     galleryPreview.classList.add(enterClass);
+    void galleryPreview.offsetWidth;
 
     window.requestAnimationFrame(() => {
       galleryPreview.classList.remove(enterClass);
