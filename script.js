@@ -10,6 +10,41 @@ const wedding = {
   kakaoJavascriptKey: "0bbcc99e7cbf96ce3794c12d758c14d1"
 };
 
+function initializeKakaoMap() {
+  const mapElement = document.querySelector("[data-kakao-map]");
+
+  if (!mapElement || !window.kakao?.maps) {
+    return;
+  }
+
+  window.kakao.maps.load(() => {
+    const defaultCenter = new window.kakao.maps.LatLng(37.45897, 126.95134);
+    const map = new window.kakao.maps.Map(mapElement, {
+      center: defaultCenter,
+      level: 4
+    });
+
+    const places = new window.kakao.maps.services.Places();
+
+    places.keywordSearch(wedding.place, (result, status) => {
+      if (status !== window.kakao.maps.services.Status.OK || !result.length) {
+        new window.kakao.maps.Marker({ position: defaultCenter, map });
+        return;
+      }
+
+      const place = result[0];
+      const position = new window.kakao.maps.LatLng(Number(place.y), Number(place.x));
+      const marker = new window.kakao.maps.Marker({ position, map });
+      const infoWindow = new window.kakao.maps.InfoWindow({
+        content: `<div style="padding:8px 12px;font-size:13px;">${wedding.place}</div>`
+      });
+
+      map.setCenter(position);
+      infoWindow.open(map, marker);
+    });
+  });
+}
+
 function showToast(message) {
   if (!toast) {
     return;
@@ -176,6 +211,7 @@ function updateDday() {
 
 updateDday();
 window.setInterval(updateDday, 1000);
+initializeKakaoMap();
 
 const galleryModal = document.querySelector("[data-gallery-modal]");
 const galleryBody = document.querySelector("[data-gallery-body]");
