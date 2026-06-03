@@ -234,12 +234,14 @@ const galleryMotionClassNames = [
   "is-exiting-left",
   "is-exiting-right",
   "is-entering-left",
-  "is-entering-right"
+  "is-entering-right",
+  "is-dragging"
 ];
 const galleryTransitionMs = 160;
 let currentGalleryIndex = 0;
 let isGalleryAnimating = false;
 const galleryImageCache = new Map();
+let isTouchDragging = false;
 
 function preloadGalleryImage(source) {
   if (!source) {
@@ -278,25 +280,23 @@ function renderGalleryImage(index) {
   galleryPreview.alt = thumbnail?.alt || "확대된 웨딩 갤러리 사진";
 }
 
-async function stepGallery(direction) {
-  if (!galleryButtons.length || !galleryPreview || isGalleryAnimating) {
-    return;
-  }
-
-  const nextIndex = (currentGalleryIndex + direction + galleryButtons.length) % galleryButtons.length;
-
-  if (nextIndex === currentGalleryIndex) {
+async function animateGalleryTransition(direction, nextIndex) {
+  if (!galleryPreview) {
     return;
   }
 
   const exitClass = direction > 0 ? "is-exiting-left" : "is-exiting-right";
   const enterClass = direction > 0 ? "is-entering-right" : "is-entering-left";
   const nextSource = galleryButtons[nextIndex]?.dataset.gallerySrc || "";
+  const shift = Math.min(Math.max(galleryPreview.clientWidth * 0.32, 72), 160);
 
   await preloadGalleryImage(nextSource);
 
   isGalleryAnimating = true;
+  galleryPreview.style.setProperty("--gallery-shift", `${shift}px`);
   galleryPreview.classList.remove(...galleryMotionClassNames);
+  galleryPreview.style.transform = "";
+  galleryPreview.style.opacity = "";
   galleryPreview.classList.add(exitClass);
 
   window.setTimeout(() => {
@@ -311,9 +311,24 @@ async function stepGallery(direction) {
 
     window.setTimeout(() => {
       galleryPreview.classList.remove(...galleryMotionClassNames);
+      galleryPreview.style.removeProperty("--gallery-shift");
       isGalleryAnimating = false;
     }, galleryTransitionMs);
   }, galleryTransitionMs);
+}
+
+async function stepGallery(direction) {
+  if (!galleryButtons.length || !galleryPreview || isGalleryAnimating || isTouchDragging) {
+    return;
+  }
+
+  const nextIndex = (currentGalleryIndex + direction + galleryButtons.length) % galleryButtons.length;
+
+  if (nextIndex === currentGalleryIndex) {
+    return;
+  }
+
+  await animateGalleryTransition(direction, nextIndex);
 }
 
 galleryButtons.forEach((button, index) => {
@@ -341,8 +356,14 @@ let touchDeltaX = 0;
 galleryPreview?.addEventListener(
   "touchstart",
   (event) => {
+    if (isGalleryAnimating) {
+      return;
+    }
+
+    isTouchDragging = true;
     touchStartX = event.changedTouches[0]?.clientX || 0;
     touchDeltaX = 0;
+    galleryPreview.classList.add("is-dragging");
   },
   { passive: true }
 );
@@ -350,17 +371,50 @@ galleryPreview?.addEventListener(
 galleryPreview?.addEventListener(
   "touchmove",
   (event) => {
+    if (!isTouchDragging) {
+      return;
+    }
+
     touchDeltaX = (event.changedTouches[0]?.clientX || 0) - touchStartX;
+    galleryPreview.style.transform = `translateX(${touchDeltaX}px)`;
+    galleryPreview.style.opacity = String(Math.max(0.72, 1 - Math.abs(touchDeltaX) / 320));
   },
   { passive: true }
 );
 
-galleryPreview?.addEventListener("touchend", () => {
-  if (Math.abs(touchDeltaX) < 48) {
+galleryPreview?.addEventListener("touchend", async () => {
+  if (!galleryPreview || !isTouchDragging) {
     return;
   }
 
-  stepGallery(touchDeltaX > 0 ? -1 : 1);
+  const direction = touchDeltaX > 0 ? -1 : 1;
+  const nextIndex = (currentGalleryIndex + direction + galleryButtons.length) % galleryButtons.length;
+  const shouldAdvance = Math.abs(touchDeltaX) >= 48;
+
+  galleryPreview.classList.remove("is-dragging");
+
+  if (!shouldAdvance || nextIndex === currentGalleryIndex) {
+    galleryPreview.style.transform = "";
+    galleryPreview.style.opacity = "";
+    isTouchDragging = false;
+    return;
+  }
+
+  galleryPreview.style.transform = "";
+  galleryPreview.style.opacity = "";
+  isTouchDragging = false;
+  await animateGalleryTransition(direction, nextIndex);
+});
+
+galleryPreview?.addEventListener("touchcancel", () => {
+  if (!galleryPreview) {
+    return;
+  }
+
+  galleryPreview.classList.remove("is-dragging");
+  galleryPreview.style.transform = "";
+  galleryPreview.style.opacity = "";
+  isTouchDragging = false;
 });
 
 galleryBody?.addEventListener("click", (event) => {

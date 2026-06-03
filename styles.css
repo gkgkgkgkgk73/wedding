@@ -25,6 +25,7 @@
   --overlay: rgba(0, 0, 0, 0.82);
   --section-gap: 76px;
   --separator-offset: -38px;
+  --panel-padding-y: max(34px, calc(22px + env(safe-area-inset-top)));
 }
 
 * {
@@ -86,7 +87,7 @@ legend {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: max(34px, calc(22px + env(safe-area-inset-top))) 24px max(34px, calc(22px + env(safe-area-inset-bottom)));
+  padding: var(--panel-padding-y) 24px max(34px, calc(22px + env(safe-area-inset-bottom)));
   text-align: center;
 }
 
@@ -105,7 +106,7 @@ legend {
 
 .cover {
   min-height: auto;
-  padding: 0 0 calc(var(--section-gap) * 0.75);
+  padding: 0 0 calc(var(--panel-padding-y) - (var(--separator-offset) * 0.75));
   border-top: 0;
 }
 
@@ -574,15 +575,19 @@ summary {
   transition: transform 220ms ease, opacity 220ms ease;
 }
 
+.gallery-modal img.is-dragging {
+  transition: none;
+}
+
 .gallery-modal img.is-exiting-left,
 .gallery-modal img.is-entering-left {
-  transform: translateX(-42px);
+  transform: translateX(calc(-1 * var(--gallery-shift, 96px)));
   opacity: 0;
 }
 
 .gallery-modal img.is-exiting-right,
 .gallery-modal img.is-entering-right {
-  transform: translateX(42px);
+  transform: translateX(var(--gallery-shift, 96px));
   opacity: 0;
 }
 
@@ -702,12 +707,13 @@ summary {
   :root {
     --section-gap: 64px;
     --separator-offset: -32px;
+    --panel-padding-y: max(28px, calc(16px + env(safe-area-inset-top)));
   }
 
   .panel {
     padding-left: 18px;
     padding-right: 18px;
-    padding-top: max(28px, calc(16px + env(safe-area-inset-top)));
+    padding-top: var(--panel-padding-y);
     padding-bottom: max(28px, calc(16px + env(safe-area-inset-bottom)));
   }
 
