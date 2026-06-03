@@ -6,7 +6,7 @@
 - `script.js`: 공유 문구, 구글 캘린더 일정, 주소 정보
 - `assets/cover.svg`: 표지 이미지. 실제 사진을 쓰려면 `assets/cover.jpg`를 넣고 `index.html`의 이미지 경로를 바꾸면 됩니다.
 - `assets/gallery-1.svg` 등: 가로 스크롤 갤러리 이미지. 실제 사진으로 교체할 수 있습니다.
-- `assets/map.svg`: 예식장 약도 이미지
+- `assets/map.svg`, `assets/map_naver.png`: 예식장 지도 이미지
 
 ## GitHub Pages
 
