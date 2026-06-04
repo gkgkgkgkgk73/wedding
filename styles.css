@@ -493,6 +493,7 @@ summary {
   display: grid;
   gap: 14px;
   margin-top: 54px;
+  padding-bottom: 12px;
 }
 
 .with-us .section-title {
