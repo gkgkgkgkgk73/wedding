@@ -106,7 +106,7 @@ legend {
 
 .cover {
   min-height: auto;
-  padding: 0 0 calc(var(--panel-padding-y) - (var(--separator-offset) * 0.75));
+  padding: 0 0 var(--panel-padding-y);
   border-top: 0;
 }
 
