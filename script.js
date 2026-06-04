@@ -471,6 +471,7 @@ rsvpForm?.addEventListener("submit", async (event) => {
   const payload = {
     side: formData.get("side"),
     name: String(formData.get("name") || "").trim(),
+    website: String(formData.get("website") || "").trim(),
     group: String(formData.get("group") || "").trim(),
     count: Number(formData.get("count") || 1),
     attendance: formData.get("attendance"),
