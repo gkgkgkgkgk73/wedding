@@ -137,7 +137,7 @@ function initializeKakaoShare() {
 }
 
 function shareWithKakao() {
-  const imageUrl = new URL("assets/kakao-share.jpg", window.location.href).toString();
+  const imageUrl = new URL("assets/kakao-share-new-head.jpg", window.location.href).toString();
 
   window.Kakao.Share.sendDefault({
     objectType: "feed",
