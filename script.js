@@ -136,8 +136,24 @@ function initializeKakaoShare() {
   return true;
 }
 
-function shareWithKakao() {
-  const imageUrl = new URL("assets/kakao-share-new-head.jpg", window.location.href).toString();
+const kakaoShareImageVersion = "20260607-1";
+
+async function shareWithKakao() {
+  const shareImageUrl = new URL(
+    `assets/kakao-share-new-head.jpg?v=${kakaoShareImageVersion}`,
+    window.location.href
+  ).toString();
+  let imageUrl = shareImageUrl;
+
+  try {
+    const response = await window.Kakao.Share.scrapImage({
+      imageUrl: shareImageUrl
+    });
+
+    imageUrl = response?.infos?.original?.url || imageUrl;
+  } catch {
+    imageUrl = shareImageUrl;
+  }
 
   window.Kakao.Share.sendDefault({
     objectType: "feed",
