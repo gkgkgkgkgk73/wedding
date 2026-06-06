@@ -4,9 +4,10 @@
 
 - `index.html`: 신랑/신부 이름, 부모님 성함, 계좌번호 문구
 - `script.js`: 공유 문구, 구글 캘린더 일정, 주소 정보
-- `assets/cover.svg`: 표지 이미지. 실제 사진을 쓰려면 `assets/cover.jpg`를 넣고 `index.html`의 이미지 경로를 바꾸면 됩니다.
-- `assets/gallery-1.svg` 등: 가로 스크롤 갤러리 이미지. 실제 사진으로 교체할 수 있습니다.
-- `assets/map.svg`, `assets/map_naver.png`: 예식장 지도 이미지
+- `assets/new_head_web.jpg`: 첫 섹션 대표 사진
+- `assets/kakao-share.jpg`: 카카오톡 공유 미리보기 이미지
+- `assets/gallery`: 갤러리 원본 사진
+- `assets/gallery-web`: 청첩장에 표시되는 경량화 갤러리 사진
 
 ## GitHub Pages
 
