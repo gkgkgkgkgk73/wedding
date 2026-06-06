@@ -580,6 +580,10 @@ summary {
   transition: none;
 }
 
+.gallery-modal img.is-positioning {
+  transition: none;
+}
+
 .gallery-modal img.is-exiting-left,
 .gallery-modal img.is-entering-left {
   transform: translateX(calc(-1 * var(--gallery-shift, 96px)));

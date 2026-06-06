@@ -235,9 +235,10 @@ const galleryMotionClassNames = [
   "is-exiting-right",
   "is-entering-left",
   "is-entering-right",
+  "is-positioning",
   "is-dragging"
 ];
-const galleryTransitionMs = 160;
+const galleryTransitionMs = 220;
 let currentGalleryIndex = 0;
 let isGalleryAnimating = false;
 const galleryImageCache = new Map();
@@ -302,11 +303,16 @@ async function animateGalleryTransition(direction, nextIndex) {
   window.setTimeout(() => {
     renderGalleryImage(nextIndex);
     galleryPreview.classList.remove(...galleryMotionClassNames);
+    galleryPreview.classList.add("is-positioning");
     galleryPreview.classList.add(enterClass);
     void galleryPreview.offsetWidth;
 
     window.requestAnimationFrame(() => {
-      galleryPreview.classList.remove(enterClass);
+      galleryPreview.classList.remove("is-positioning");
+
+      window.requestAnimationFrame(() => {
+        galleryPreview.classList.remove(enterClass);
+      });
     });
 
     window.setTimeout(() => {
