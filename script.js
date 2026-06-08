@@ -2,7 +2,7 @@ const toast = document.querySelector("[data-toast]");
 const weddingDate = new Date("2026-08-23T13:00:00+09:00");
 
 const wedding = {
-  title: "김준경 & 유경민 결혼합니다",
+  title: "유경민 & 김준경 결혼합니다",
   dateText: "2026년 8월 23일 일요일 오후 1시",
   place: "서울대학교 연구공원 웨딩홀",
   address: "서울특별시 관악구 관악로 1 (서울특별시 관악구 신림동 산56-1)",
