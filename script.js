@@ -447,6 +447,8 @@ galleryBody?.addEventListener("click", (event) => {
 
 const rsvpModal = document.querySelector("[data-rsvp-modal]");
 const rsvpForm = document.querySelector("[data-rsvp-form]");
+const rsvpSubmitButton = rsvpForm?.querySelector('button[type="submit"]');
+let isSubmittingRsvp = false;
 
 document.querySelector("[data-open-rsvp]")?.addEventListener("click", () => {
   openDialog(rsvpModal);
@@ -485,6 +487,10 @@ async function submitRsvp(payload) {
 rsvpForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
+  if (isSubmittingRsvp) {
+    return;
+  }
+
   if (!rsvpForm.reportValidity()) {
     return;
   }
@@ -500,6 +506,11 @@ rsvpForm?.addEventListener("submit", async (event) => {
     submittedAt: new Date().toISOString()
   };
 
+  isSubmittingRsvp = true;
+  if (rsvpSubmitButton) {
+    rsvpSubmitButton.disabled = true;
+  }
+
   try {
     await submitRsvp(payload);
     showToast("참석여부가 전달됐어요.");
@@ -508,6 +519,11 @@ rsvpForm?.addEventListener("submit", async (event) => {
     pending.push(payload);
     localStorage.setItem("pendingRsvps", JSON.stringify(pending));
     showToast("임시 저장했어요. API 연결 후 다시 전송할 수 있어요.");
+  } finally {
+    isSubmittingRsvp = false;
+    if (rsvpSubmitButton) {
+      rsvpSubmitButton.disabled = false;
+    }
   }
 
   rsvpForm.reset();
